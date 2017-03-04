@@ -12,6 +12,7 @@ const action = {
 
     bookShelf: HOST + '/personalService/userBooks.do',//我的书架
     bookInfo: HOST + '/book.htm?',//书籍详情
+    spotBook: HOST + '/read.htm?',//点读书
     favorites: HOST + '/personalService/favorites.do',//我的收藏
     playAudio: HOST + '/share/audio.htm?',//播放音频
     playVideo: HOST + '/share/video.htm?',//播放视频

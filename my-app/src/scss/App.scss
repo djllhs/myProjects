@@ -149,13 +149,13 @@ a {
 
 //-----------myCollection css -----------
 .per_myCollection, .per_purchased {
-  padding: px-convert-rem(14) 0 0 0;
+  padding: px-convert-rem(16) 0 0 0;
 }
 
 // 包裹标题tabs div
 .per_myC_title_wrap,.per_purchased_title_wrap {
 
-  width: px-convert-rem(480);
+  width: px-convert-rem(456);
   height: px-convert-rem(60);
   border: px-convert-rem(2) solid $color;
   border-radius: px-convert-rem(4);
@@ -169,7 +169,7 @@ a {
 
   // 标题个体
   .per_tab_title{
-    width: px-convert-rem(240);
+    width: px-convert-rem(228);
     height: 100%;
   }
 
@@ -357,6 +357,15 @@ a {
 }
 
 /*----------purchased css ----------*/
+// 标题的宽度
+.per_purchased_title_wrap {
+  width:  px-convert-rem(686);
+}
+// 已购买的 三个标题
+.per_tab_title_spot {
+  border-left: px-convert-rem(2) solid $color;
+  border-right: px-convert-rem(2) solid $color;
+}
 // 包裹子组件div
 .per_purchased_content_wrap {
 
@@ -372,6 +381,33 @@ a {
     background: mediumspringgreen;
 
   }
+
+  // 课程
+  .per_purchased_course_container {
+    @extend %flex_layout;
+    padding: 0 px-convert-rem(20) 0 px-convert-rem(8);
+
+    .per_purchased_course_item_wrap {
+      width:  px-convert-rem(340);
+      height: px-convert-rem(262);
+      //outline: 1px solid red;
+      margin: 0 0 px-convert-rem(44) px-convert-rem(20);
+      color: #222;
+
+      .per_purchased_course_item {
+        width: 100%;
+        height:  px-convert-rem(190);
+        outline:  1px solid $color;
+      }
+      .per_purchased_course_item_name {
+        margin-top: px-convert-rem(16);
+        @extend %two_line;
+      }
+
+    }
+  }
+
+
 
 }
 

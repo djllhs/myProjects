@@ -204,9 +204,11 @@ class AudioResources extends Component{
                 <Spinner className="loading" style={{display:display}}/>
                 {audioList}
                 <div className="per_myCollection_incomplete_data"
-                     style={{display: !appUrl ? "none" : 'block'}}
+                     style={{display:!appUrl  ? "none" : 'block'}}
                 >
-                    <div onClick={this.props.openApp}>打开App-查看全部内容</div>
+                    <div className="text" onClick={this.props.openApp}>打开App-查看全部内容</div>
+                    <div className="null_div"></div>
+
                 </div>
             </div>
         )

@@ -66,21 +66,26 @@ class Purchased extends Component {
                          className={ this.check_tittle_index(0) }
                     >图书资源</div>
                     <div onClick={this.tab_click.bind(this,1)}
-                         className={ this.check_tittle_index(1) }>点读书</div>
+                         className={ this.check_tittle_index(1) + " per_tab_title_spot"}>点读书</div>
+                    <div onClick={this.tab_click.bind(this,2)}
+                         className={ this.check_tittle_index(2) }>课程</div>
                 </div>
                 <div className="per_purchased_content_wrap">
                     <Spinner className="loading" style={{display:display}}/>
-                    <div name="video" className={ this.check_item_index(0) }>
+                    <div name="teletext" className={ this.check_item_index(0) }>
                         <TeletextResources display={display}
                                            res={this.state.res.filter((item) => {return !item.clickRead })}
                                            msg={msg}
                         />
                     </div>
-                    <div name="audio"  className={ this.check_item_index(1) }>
-                        <SoptBooksResources display={display}
+                    <div name="spotBooks"  className={ this.check_item_index(1) }>
+                        <SpotBooksResources display={display}
                                             res={this.state.res.filter((item) => {return item.clickRead })}
                                             msg={msg}
                         />
+                    </div>
+                    <div name="course" className={ this.check_item_index(2)}>
+                        <Course />
                     </div>
                 </div>
             </div>
@@ -119,10 +124,10 @@ class TeletextResources extends Component{
     }
 }
 
-class SoptBooksResources extends Component{
+class SpotBooksResources extends Component{
 
     bookInfo(item){
-        window.location=action.bookInfo +'id=' + item.id + '&sign=' + item.idSign;
+        window.location=action.spotBook +'bookId=' + item.id;
     }
     render(){
 
@@ -147,6 +152,46 @@ class SoptBooksResources extends Component{
         return(
             <div className="per_purchased_spot_read_container">
                 {spotBooksList}
+            </div>
+        )
+    }
+}
+
+class Course extends  Component {
+    render() {
+        return(
+            <div className="per_purchased_course_container">
+                <div className="per_purchased_course_item_wrap">
+                    <div className="per_purchased_course_item"></div>
+                    <div className="per_purchased_course_item_name">
+                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                    </div>
+                </div>
+                <div className="per_purchased_course_item_wrap">
+                    <div className="per_purchased_course_item"></div>
+                    <div className="per_purchased_course_item_name">
+                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                    </div>
+                </div>
+                <div className="per_purchased_course_item_wrap">
+                    <div className="per_purchased_course_item"></div>
+                    <div className="per_purchased_course_item_name">
+                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                    </div>
+                </div>
+                <div className="per_purchased_course_item_wrap">
+                    <div className="per_purchased_course_item"></div>
+                    <div className="per_purchased_course_item_name">
+                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                    </div>
+                </div>
+                <div className="per_purchased_course_item_wrap">
+                    <div className="per_purchased_course_item"></div>
+                    <div className="per_purchased_course_item_name">
+                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                        机读卡三等奖阿克苏的骄傲三菱电机阿萨德克拉手机掉了
+                    </div>
+                </div>
             </div>
         )
     }
