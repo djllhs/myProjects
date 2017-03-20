@@ -14,12 +14,14 @@ class MyCollection extends Component {
         this.state = {
             currentIndex: 0,
             res:[],
+            resCourse:[],
             favType:3,
             display:'block',
             appUrl: null,
             msg:'什么都木有' // 数据提示
         };
         this.openApp = this.openApp.bind(this);
+        this.success = this.success.bind(this);
     }
 
     componentWillMount() {
@@ -27,31 +29,36 @@ class MyCollection extends Component {
         const {favType } = this.state;
         const url = action.favorites,
             obj = {
-                data:{favType: favType},
+                data: {favType: favType},
                 success: res => {
-                    if (res.success) {
-                        this.setState({
-                            res: !!res.data.resources ? res.data.resources : [],
-                            display: 'none',
-                            appUrl: res.data.iosDir !== undefined ?　isiOS() ? res.data.iosDir : res.data.androidDir : null
-                        })
-                    }else {
-                        this.setState({
-                            res: [],
-                            display: 'none',
-                            msg: res.msg,
-                            appUrl:null
-                        });
-                    }
+                    this.success(res,'res');
                 }
             };
-        ajax(url, obj);
+        ajax(url, obj); // 默认请求视频资源
+
+
+    }
+    success(res, result) {
+        if (res.success) {
+            this.setState({
+                [result]: !!res.data.resources ? res.data.resources : [],
+                display: 'none',
+                appUrl: res.data.iosDir !== undefined ? isiOS() ? res.data.iosDir : res.data.androidDir : null
+            })
+        } else {
+            this.setState({
+                [result]: [],
+                display: 'none',
+                msg: res.msg,
+                appUrl: null
+            });
+        }
     }
 
     tab_click(currentIndex){
         this.setState({
             currentIndex: currentIndex,
-            favType: !!currentIndex ? 4 : 3,
+            favType: currentIndex === 0 ? 3 : currentIndex === 1 ? 4 : 6,
             res:[],
             display:'block',
             appUrl: null
@@ -74,6 +81,7 @@ class MyCollection extends Component {
     }
 
     render(){
+        const {resCourse} = this.state;
         return(
             <div className="per_myCollection">
                 <div className="per_myC_title_wrap">
@@ -81,14 +89,21 @@ class MyCollection extends Component {
                          className={ this.check_tittle_index(0) }
                     >视频</div>
                     <div onClick={this.tab_click.bind(this,1)}
-                         className={ this.check_tittle_index(1) }>音频</div>
+                         className={ this.check_tittle_index(1) + " per_tab_title_spot"}>音频</div>
+                    <div onClick={this.tab_click.bind(this,2)}
+                         className={ this.check_tittle_index(2) }
+                    >课程</div>
+
                 </div>
-                <div>
+                <div className="per_purchased_content_wrap">
                     <div name="video" className={ this.check_item_index(0) }>
                         <VideoResources {...this.state} openApp={this.openApp}/>
                     </div>
                     <div name="audio"  className={ this.check_item_index(1) }>
                         <AudioResources  {...this.state} openApp={this.openApp}/>
+                    </div>
+                    <div name="course"  className={ this.check_item_index(2) }>
+                        <Course  {...this.state} openApp={this.openApp}/>
                     </div>
                 </div>
             </div>
@@ -103,9 +118,6 @@ class VideoResources extends Component{
                           item.idSign + "&cid=" + item.pcrId;
     }
 
-    openApp(){
-
-    }
     render(){
         const {res, display, appUrl, msg } = this.props,
             length = res.length;
@@ -205,6 +217,42 @@ class AudioResources extends Component{
                 {audioList}
                 <div className="per_myCollection_incomplete_data"
                      style={{display:!appUrl  ? "none" : 'block'}}
+                >
+                    <div className="text" onClick={this.props.openApp}>打开App-查看全部内容</div>
+                    <div className="null_div"></div>
+
+                </div>
+            </div>
+        )
+    }
+}
+class Course extends  Component {
+    viewCourse(item) {
+        window.location = action.viewCourse + 'lessonId=' + item.id ;
+    }
+    render() {
+        const {res, display, appUrl, msg} = this.props,
+            length = res.length;
+        const courseList = !!length ?
+            res.map((item, index) => {
+                return (
+                    <div className="per_course_item_wrap" onClick={this.viewCourse.bind(this,item)} key={index}>
+                        <div className="per_course_item">
+                            <img alt='' src={item.thumbnails}/>
+                        </div>
+                        <div className="per_course_item_name">
+                            {item.name}
+                        </div>
+                    </div>
+                )
+            })
+            : <Null style={{display: display === 'block' ? "none" : 'block'}} text={msg}/>;
+        return (
+            <div className="per_course_container">
+                <Spinner className="loading" style={{display: display}}/>
+                {courseList}
+                <div className="per_myCollection_incomplete_data"
+                     style={{display: !appUrl ? "none" : 'block'}}
                 >
                     <div className="text" onClick={this.props.openApp}>打开App-查看全部内容</div>
                     <div className="null_div"></div>

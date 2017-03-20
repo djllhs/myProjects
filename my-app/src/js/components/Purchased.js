@@ -14,6 +14,7 @@ class Purchased extends Component {
         this.state = {
             currentIndex: 0,
             res:[],
+            resLessons:[],
             display:'block',
             msg:'什么都木有'
         };
@@ -26,12 +27,14 @@ class Purchased extends Component {
                 success: res => {
                     if (res.success) {
                         this.setState({
-                            res: res.data,
+                            res: res.data.books,
+                            resLessons:!!res.data.lessons ? res.data.lessons : [],
                             display: 'none'
                         })
                     }else {
                         this.setState({
                             res: [],
+                            resLessons: [],
                             display: 'none',
                             msg: res.msg
                         });
@@ -44,7 +47,6 @@ class Purchased extends Component {
     tab_click(currentIndex){
         this.setState({
             currentIndex: currentIndex,
-            favType: !!currentIndex ? 4 : 3
         },() => {
             this.componentWillMount();
         });
@@ -85,7 +87,9 @@ class Purchased extends Component {
                         />
                     </div>
                     <div name="course" className={ this.check_item_index(2)}>
-                        <Course />
+                        <Course display={display}
+                                res={this.state.resLessons}
+                                msg={msg}/>
                     </div>
                 </div>
             </div>
@@ -136,15 +140,12 @@ class SpotBooksResources extends Component{
         const spotBooksList = !!length ? res.map((item, index) => {
 
             return (
-                <div className="per_purchased_spot_read_container" key={index}
-                     onClick={this.bookInfo.bind(this,item)}
-                >
-                    <div className="per_purchased_spot_read_item_wrap">
-                        <div className="per_purchased_spot_read_item">
-                            <img src={item.thumbnails} alt=""/>
-                        </div>
-                        <div className="per_purchased_book_item_name">{item.name}</div>
+                <div className="per_purchased_spot_read_item_wrap" key={index}
+                     onClick={this.bookInfo.bind(this,item)}>
+                    <div className="per_purchased_spot_read_item">
+                        <img src={item.thumbnails} alt=""/>
                     </div>
+                    <div className="per_purchased_book_item_name">{item.name}</div>
                 </div>
             )
         }) : <Null style={{display:display === 'block' ? "none" : 'block'}} text={msg}/>;
@@ -158,40 +159,29 @@ class SpotBooksResources extends Component{
 }
 
 class Course extends  Component {
+    viewCourse(item) {
+        window.location = action.viewCourse + 'lessonId=' + item.id ;
+    }
     render() {
-        return(
-            <div className="per_purchased_course_container">
-                <div className="per_purchased_course_item_wrap">
-                    <div className="per_purchased_course_item"></div>
-                    <div className="per_purchased_course_item_name">
-                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        const {res, display, msg} = this.props,
+            length = res.length;
+        const courseList = !!length ?
+            res.map((item, index) => {
+                return (
+                    <div className="per_course_item_wrap" onClick={this.viewCourse.bind(this,item)} key={index}>
+                        <div className="per_course_item">
+                            <img alt='' src={item.thumbnails}/>
+                        </div>
+                        <div className="per_course_item_name">
+                            {item.name}
+                        </div>
                     </div>
-                </div>
-                <div className="per_purchased_course_item_wrap">
-                    <div className="per_purchased_course_item"></div>
-                    <div className="per_purchased_course_item_name">
-                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                    </div>
-                </div>
-                <div className="per_purchased_course_item_wrap">
-                    <div className="per_purchased_course_item"></div>
-                    <div className="per_purchased_course_item_name">
-                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                    </div>
-                </div>
-                <div className="per_purchased_course_item_wrap">
-                    <div className="per_purchased_course_item"></div>
-                    <div className="per_purchased_course_item_name">
-                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                    </div>
-                </div>
-                <div className="per_purchased_course_item_wrap">
-                    <div className="per_purchased_course_item"></div>
-                    <div className="per_purchased_course_item_name">
-                        将哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                        机读卡三等奖阿克苏的骄傲三菱电机阿萨德克拉手机掉了
-                    </div>
-                </div>
+                )
+            })
+            : <Null style={{display: display === 'block' ? "none" : 'block'}} text={msg}/>;
+        return (
+            <div className="per_course_container">
+                {courseList}
             </div>
         )
     }
