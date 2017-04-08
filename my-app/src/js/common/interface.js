@@ -20,6 +20,7 @@ const action = {
     bought: HOST + '/personalService/bought.do',//已购买的
     eventUp: HOST + '/statisticsService/eventUp.do',//事件上报
     error: HOST + '/qr/error.htm',//错误页面
+    course: HOST + '/personalService/lesson.do', // 我的课程
 
 };
 

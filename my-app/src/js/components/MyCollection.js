@@ -90,7 +90,7 @@ class MyCollection extends Component {
                     >视频</div>
                     <div onClick={this.tab_click.bind(this,1)}
                          className={ this.check_tittle_index(1) + " per_tab_title_spot"}>音频</div>
-                    <div onClick={this.tab_click.bind(this,2)}
+                    <div onClick={this.tab_click.bind(this,2)} style={{display: 'none'}}
                          className={ this.check_tittle_index(2) }
                     >课程</div>
 

@@ -160,7 +160,7 @@ class SpotBooksResources extends Component{
 
 class Course extends  Component {
     viewCourse(item) {
-        window.location = action.viewCourse + 'lessonId=' + item.id ;
+        window.location = action.viewCourse + '_appbiz=lesson&srcchannel=mp&lessonId=' + item.id ;
     }
     render() {
         const {res, display, msg} = this.props,

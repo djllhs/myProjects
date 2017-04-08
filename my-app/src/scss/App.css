@@ -18,7 +18,7 @@ a {
   width: 100%; }
 
 /*----text show two line only -------*/
-.per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_teletext_item_wrap .per_boS_book_item_name, .per_purchased_teletext_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name, .per_course_container .per_course_item_wrap .per_course_item_name {
+.per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_teletext_item_wrap .per_boS_book_item_name, .per_purchased_teletext_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name, .per_course_container .per_course_item_wrap .per_course_item_name, .course_item .course_item_info {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -115,6 +115,9 @@ a {
     background: #3ca6fe;
     color: white;
     transition: all .3s ease; }
+
+.per_myC_title_wrap {
+  width: 6.10667rem; }
 
 .per_myCollection_incomplete_data {
   width: 100%;
@@ -308,5 +311,26 @@ a {
 
 .transitionWrapper > div {
   height: 100%; }
+
+/*--------------我的课程--------------*/
+.course_item {
+  height: 1.6rem;
+  background-color: white;
+  padding: 0.32rem;
+  border-bottom: 0.01333rem solid #ddd; }
+  .course_item .course_item_book {
+    width: 2.85333rem;
+    height: 1.6rem;
+    background-color: red;
+    float: left;
+    margin-right: 0.26667rem; }
+    .course_item .course_item_book > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .course_item .course_item_info {
+    font-size: 0.4rem;
+    color: #222;
+    line-height: 0.53333rem; }
 
 /*# sourceMappingURL=App.css.map */

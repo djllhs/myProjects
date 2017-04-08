@@ -27,7 +27,18 @@ class App extends Component {
                             </div>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/course" activeClassName="li_active" onClick={() => {resStatistics(action.eventUp,1032)}}>
+                            <div>
+                                <div className="per_icon_wrap">
+                                    <img src={require("../../img/ic_my _course@3x.png")} alt=""/>
+                                </div>
+                                <span>我的课程</span>
+                                <div className="per_icon_pageRight"></div>
+                            </div>
+                        </Link>
 
+                    </li>
                     <li>
                         <Link to="/myCollection" activeClassName="li_active"  onClick={() => {resStatistics(action.eventUp, 1027)}}>
                             <div>
@@ -52,6 +63,7 @@ class App extends Component {
                         </Link>
 
                     </li>
+
                 </ul>
             </div>
         );

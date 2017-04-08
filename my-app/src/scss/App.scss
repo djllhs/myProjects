@@ -182,7 +182,9 @@ a {
   }
 
 }
-
+.per_myC_title_wrap{
+    width: px-convert-rem(458);
+}
 //未加载完数据
 .per_myCollection_incomplete_data {
 
@@ -417,11 +419,6 @@ a {
   }
 }
 
-@media (min-width: 700px) {
-
-}
-
-
 // 子组件 容器div
 .per_purchased_video_container, .per_purchased_spot_read_container,
 .per_purchased_teletext_container{
@@ -430,21 +427,17 @@ a {
 
   .per_purchased_video_item_wrap,.per_purchased_spot_read_item_wrap,
   .per_purchased_teletext_item_wrap{
-
     //margin-top: px-convert-rem(32);
-
   }
 }
 
+
 // 数据为空时
 ._null{
-  //position: relative;
-  //top: 40%;
-
-  //left: 27.5%;
   text-align: center;
   margin: 0 auto;
   margin-top: 30%;
+
   img{
     width: px-convert-rem(360);
     height: px-convert-rem(320);
@@ -485,11 +478,56 @@ a {
 }
 
 .transitionWrapper {
-  //position: relative;
   >div {
     height: 100%;
   }
 }
+
+/*--------------我的课程--------------*/
+  .course_item{
+    //width:  100%;
+    height: px-convert-rem(120);
+    background-color: white;
+    padding: px-convert-rem(24);
+    border-bottom: px-convert-rem(1) solid #ddd;
+
+    .course_item_book{
+      width: px-convert-rem(214);
+      height: px-convert-rem(120);
+      background-color:  red;
+      float: left;
+      margin-right: px-convert-rem(20);
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .course_item_info{
+      font-size: px-convert-rem(30);
+      color: #222;
+      @extend %two_line;
+      line-height: px-convert-rem(40);
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
