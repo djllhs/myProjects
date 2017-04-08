@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import {ajax, format_ms_to_string, format_size, isiOS} from '../common/common';
+import {ajax, format_ms_to_string, format_size, isiOS, wxSetTitle} from '../common/common';
 import action from  '../common/interface';
 import Spinner from '../Utils/Spinner';
 import Null from '../Utils/Null';
@@ -25,7 +25,8 @@ class MyCollection extends Component {
     }
 
     componentWillMount() {
-        document.title = '我的收藏';
+        // document.title = '我的收藏';
+        wxSetTitle('我的收藏')
         const {favType } = this.state;
         const url = action.favorites,
             obj = {

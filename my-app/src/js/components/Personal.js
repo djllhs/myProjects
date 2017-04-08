@@ -4,12 +4,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import action from  '../common/interface';
-import {resStatistics} from '../common/common';
+import {resStatistics, wxSetTitle} from '../common/common';
 import '../../scss/App.css';
 
 class App extends Component {
     componentWillMount() {
-        document.title = '个人中心'
+        // document.title = '个人中心'
+        wxSetTitle('个人中心')
     }
 
     render() {

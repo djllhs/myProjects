@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import Null from '../Utils/Null';
 import Spinner from '../Utils/Spinner';
 import action from '../common/interface';
-import {ajax} from '../common/common';
+import {ajax, wxSetTitle} from '../common/common';
 
 export default  class Course extends Component {
     constructor(props) {
@@ -18,8 +18,8 @@ export default  class Course extends Component {
     }
 
     componentWillMount() {
-        document.title = '我的课程';
-
+        // document.title = '我的课程';
+        wxSetTitle('我的课程');
         const url = action.course,
             obj = {
                 success: res => {

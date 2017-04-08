@@ -2,7 +2,7 @@
  * Created by 代佳玲 on 2017/2/17.
  */
 import React, { Component } from 'react';
-import {ajax} from '../common/common';
+import {ajax, wxSetTitle} from '../common/common';
 import action from  '../common/interface';
 import Spinner from '../Utils/Spinner';
 import Null from '../Utils/Null';
@@ -21,7 +21,8 @@ class Purchased extends Component {
     }
 
     componentWillMount() {
-        document.title = '已购买的';
+        // document.title = '已购买的';
+        wxSetTitle('已购买的');
         const url = action.bought,
             obj = {
                 success: res => {

@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import {ajax} from '../common/common';
+import {ajax, wxSetTitle} from '../common/common';
 import action from  '../common/interface';
 import Spinner from '../Utils/Spinner';
 import Null from '../Utils/Null';
@@ -21,8 +21,11 @@ class BookShelf extends Component {
         }
     }
 
+    componentWillMount() {
+        wxSetTitle('书架')
+    }
     componentDidMount() {
-        document.title = '书架';
+        // document.title = '书架';
         const url = action.bookShelf,
             obj = {
                 success: res => {
