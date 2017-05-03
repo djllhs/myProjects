@@ -47,7 +47,11 @@ a {
 /*------- personal css ----------*/
 .personal {
   width: 100%;
-  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  //position: relative;
 }
 
 .loading {
@@ -103,6 +107,85 @@ a {
     .li_active {
       background: #f4f4f4;
     }
+  }
+}
+
+
+/*-----------------footer--------------*/
+.tooltip_bar {
+  width: 100%;
+  //position: absolute;
+  //top: 90%;
+  //bottom: 0;
+  height: px-convert-rem(120);
+  background-color: #414141;
+  //padding: px-convert-rem(17) px-convert-rem(32);
+  //opacity: 0.85 !important;
+  //filter: alpha(opacity=85) !important;
+  @extend %flex_layout;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.tooltip_bar_logo{
+  //float: left;
+  margin-left: px-convert-rem(32);
+  display: flex;
+  flex-direction: row;
+  .tooltip_bar_logo_img  {
+    //display: table-cell;
+    //overflow: hidden;
+    //text-align: center;
+    //vertical-align: middle;
+    height: px-convert-rem(86);
+    width: px-convert-rem(86);
+  }
+}
+
+.tooltip_bar_logo_des {
+  height: px-convert-rem(86);
+  margin-left: px-convert-rem(10);
+  //margin-top: px-convert-rem(11);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.tooltip_bar_logo_des_name {
+  color: #fff;
+  font-size: px-convert-rem(32);
+}
+
+.tooltip_bar_logo_des_content {
+  //margin-top: px-convert-rem(12);
+  font-size: px-convert-rem(24);
+  color: #fff;
+}
+
+.tooltip_bar_logo_des_download {
+  margin-top: px-convert-rem(12);
+  font-size: px-convert-rem(16);
+  color: #7a7a7a;
+}
+
+.tooltip_bar_download {
+  //position: absolute;
+  //top: px-convert-rem(24);
+  margin-right: px-convert-rem(32);
+  height: px-convert-rem(72);
+  width: px-convert-rem(140);
+  border: 1px solid #fa3b3b;
+  color: #fa3b3b;
+  font-size: px-convert-rem(28);
+  border-radius: px-convert-rem(8);
+  span {
+    display: inline-block;
+    width: px-convert-rem(136);
+    height: px-convert-rem(72);
+    line-height: px-convert-rem(72);
+    text-align: center;
   }
 }
 

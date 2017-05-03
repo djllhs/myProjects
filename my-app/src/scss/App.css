@@ -27,7 +27,7 @@ a {
   word-break: break-all; }
 
 /*----flex layout ----*/
-.per_bookShelf, .per_course_container, .per_purchased_video_container, .per_purchased_spot_read_container,
+.tooltip_bar, .per_bookShelf, .per_course_container, .per_purchased_video_container, .per_purchased_spot_read_container,
 .per_purchased_teletext_container {
   display: flex;
   flex-flow: row wrap;
@@ -36,7 +36,10 @@ a {
 /*------- personal css ----------*/
 .personal {
   width: 100%;
-  position: relative; }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .loading {
   position: absolute;
@@ -73,6 +76,57 @@ a {
     margin-top: 0.08rem; }
 .per_list > li .li_active {
   background: #f4f4f4; }
+
+/*-----------------footer--------------*/
+.tooltip_bar {
+  width: 100%;
+  height: 1.6rem;
+  background-color: #414141;
+  align-items: center;
+  justify-content: space-between; }
+
+.tooltip_bar_logo {
+  margin-left: 0.42667rem;
+  display: flex;
+  flex-direction: row; }
+  .tooltip_bar_logo .tooltip_bar_logo_img {
+    height: 1.14667rem;
+    width: 1.14667rem; }
+
+.tooltip_bar_logo_des {
+  height: 1.14667rem;
+  margin-left: 0.13333rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.tooltip_bar_logo_des_name {
+  color: #fff;
+  font-size: 0.42667rem; }
+
+.tooltip_bar_logo_des_content {
+  font-size: 0.32rem;
+  color: #fff; }
+
+.tooltip_bar_logo_des_download {
+  margin-top: 0.16rem;
+  font-size: 0.21333rem;
+  color: #7a7a7a; }
+
+.tooltip_bar_download {
+  margin-right: 0.42667rem;
+  height: 0.96rem;
+  width: 1.86667rem;
+  border: 1px solid #fa3b3b;
+  color: #fa3b3b;
+  font-size: 0.37333rem;
+  border-radius: 0.10667rem; }
+  .tooltip_bar_download span {
+    display: inline-block;
+    width: 1.81333rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    text-align: center; }
 
 .per_bookShelf, .per_myCollection, .per_purchased {
   padding: 0.32rem 0.29333rem 0 0rem; }
