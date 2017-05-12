@@ -13,15 +13,14 @@ class App extends Component {
         wxSetTitle('个人中心')
     }
     download() {
-        const iosValue = this.refs.ioss.value,
-            androidValue = this.refs.androids.value
-        console.log(this.refs.ioss.value);
+        const iosValue = document.getElementById('ioss').value,
+            androidValue = document.getElementById('androids').value
+        console.log(iosValue);
         if(isiOS()){
             window.location = iosValue;
         }else{
             window.location = androidValue
         }
-
     }
     render() {
         return (
@@ -91,8 +90,6 @@ class App extends Component {
                     <div className="tooltip_bar_download" onClick={this.download.bind(this)}>
                         <span>立即打开</span>
                     </div>
-                    <input type="hidden" ref="ioss" value="$!download.iosDir"/>
-                    <input type="hidden" ref="androids" value="$!download.androidDir"/>
                 </div>
             </div>
         );
