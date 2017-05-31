@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://djllhs.net/2017/05/26/javascript standard/index.html">
 <meta property="og:site_name" content="You and me">
 <meta property="og:description" content="任何语言都需要强调编码风格的一致性。增强代码的可读性，可维护性是相当重要的。本书讲述的技巧和技术比较实用。">
-<meta property="og:updated_time" content="2017-05-31T08:58:23.870Z">
+<meta property="og:updated_time" content="2017-05-31T09:49:26.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读《编写维护的javascript》一书简要笔记">
 <meta name="twitter:description" content="任何语言都需要强调编码风格的一致性。增强代码的可读性，可维护性是相当重要的。本书讲述的技巧和技术比较实用。">
@@ -470,7 +470,7 @@ doSomething(&apos;hi&apos;);
 <li>将JavaScript从HTML中抽离（最好将所有的JavaScript代码都放入外置文件中）</li>
 <li>将HTML从JavaScript中抽离<ul>
 <li>从服务器加载，即将模板放置于远程服务器（大量），少量的标签可采用客户端模板</li>
-<li>简单客户端模板，一些带“插槽”的标签片段，注释是和元素及文本一样的DOM节点；将模板数据嵌入到HTML页面里的第二个方法是使用一个带有自定义type属性的<script>元素</li>
+<li>简单客户端模板，一些带“插槽”的标签片段，注释是和元素及文本一样的DOM节点；将模板数据嵌入 到HTML页面里的第二个方法是使用一个带有自定义type属性的script元素</li>
 <li>复杂客户端模板，如Handlebars。</li>
 </ul>
 </li>
@@ -755,10 +755,29 @@ delete person.name; //同上
 }
 </code></pre><p> }</p>
 </li>
-<li><p>避免特性推断</p>
+<li><p>避免特性推断<br>不能从一个特性的存在推断出另一个特性是否存在。最好的情况是两者有薄弱的联系，最坏的情况是两者根本没有直接关系</p>
 </li>
+<li>避免浏览器推断</li>
 </ol>
-</script></li></ul></li></ol>
+<h2 id="十三、文件和目录结构"><a href="#十三、文件和目录结构" class="headerlink" title="十三、文件和目录结构"></a>十三、文件和目录结构</h2><ol>
+<li>最佳实践</li>
+</ol>
+<ul>
+<li>一个文件只包含一个对象</li>
+<li>相关的文件用目录分组</li>
+<li>保持第三方代码的独立</li>
+<li>确定创建位置</li>
+<li>保持测试代码的完整性</li>
+</ul>
+<ol>
+<li>基本结构</li>
+</ol>
+<ul>
+<li>build，放置最终构建后的文件，理想情况下这个目录不应该提交</li>
+<li>src，放置所有的源文件，包括用来进行文件分组的子目录</li>
+<li>test或者tests，放置所有的测试文件。通常包含一些同源代买目录一一对应的子目录或文件</li>
+</ul>
+
       
     </div>
     
@@ -769,7 +788,7 @@ delete person.name; //同上
         <p><span>本文标题:</span><a href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-26, 15:12:36</p>
-        <p><span>最后更新:</span>2017-05-31, 16:58:23</p>
+        <p><span>最后更新:</span>2017-05-31, 17:49:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/26/javascript standard/index.html" title="阅读《编写维护的javascript》一书简要笔记">http://djllhs.net/2017/05/26/javascript standard/index.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/26/javascript standard/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -799,7 +818,7 @@ delete person.name; //同上
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本的格式化"><span class="toc-number">1.</span> <span class="toc-text">一、基本的格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、注释"><span class="toc-number">2.</span> <span class="toc-text">二、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、语句和表达式"><span class="toc-number">3.</span> <span class="toc-text">三、语句和表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、变量、函数和运算符"><span class="toc-number">4.</span> <span class="toc-text">四、变量、函数和运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、UI层的松耦合"><span class="toc-number">5.</span> <span class="toc-text">五、UI层的松耦合</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本的格式化"><span class="toc-number">1.</span> <span class="toc-text">一、基本的格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、注释"><span class="toc-number">2.</span> <span class="toc-text">二、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、语句和表达式"><span class="toc-number">3.</span> <span class="toc-text">三、语句和表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、变量、函数和运算符"><span class="toc-number">4.</span> <span class="toc-text">四、变量、函数和运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、UI层的松耦合"><span class="toc-number">5.</span> <span class="toc-text">五、UI层的松耦合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、避免使用全局变量"><span class="toc-number">6.</span> <span class="toc-text">六、避免使用全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、事件处理"><span class="toc-number">7.</span> <span class="toc-text">七、事件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、避免“空比较”"><span class="toc-number">8.</span> <span class="toc-text">八、避免“空比较”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、将配置数据从代码中分离出来"><span class="toc-number">9.</span> <span class="toc-text">九、将配置数据从代码中分离出来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、抛出自定义错误"><span class="toc-number">10.</span> <span class="toc-text">十、抛出自定义错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、不是你的对象不要动"><span class="toc-number">11.</span> <span class="toc-text">十一、不是你的对象不要动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、浏览器嗅探"><span class="toc-number">12.</span> <span class="toc-text">十二、浏览器嗅探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、文件和目录结构"><span class="toc-number">13.</span> <span class="toc-text">十三、文件和目录结构</span></a></li></ol>
         
     </div>
     <style>
