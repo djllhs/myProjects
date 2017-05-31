@@ -22,6 +22,12 @@ class App extends Component {
             window.location = androidValue
         }
     }
+    close() {
+        const closeNode = document.getElementsByClassName("tooltip_bar")[0];
+
+        closeNode.className = "tooltip_bar tooltip_bar_display";
+        // alert(closeNode.className);
+    }
     render() {
         return (
             <div className="personal">
@@ -90,6 +96,10 @@ class App extends Component {
                     <div className="tooltip_bar_download" onClick={this.download.bind(this)}>
                         <span>立即打开</span>
                     </div>
+                    <div className="tooltip_bar_close">
+                        <img src={require("../../img/Artboard 54@3x.png")} onClick={this.close.bind(this)}/>
+                    </div>
+
                 </div>
             </div>
         );

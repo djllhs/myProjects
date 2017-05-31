@@ -85,6 +85,9 @@ a {
   align-items: center;
   justify-content: space-between; }
 
+.tooltip_bar_display {
+  display: none; }
+
 .tooltip_bar_logo {
   margin-left: 0.42667rem;
   display: flex;
@@ -120,13 +123,25 @@ a {
   border: 1px solid #fa3b3b;
   color: #fa3b3b;
   font-size: 0.37333rem;
-  border-radius: 0.10667rem; }
+  border-radius: 0.10667rem;
+  margin-right: 0.66667rem; }
   .tooltip_bar_download span {
     display: inline-block;
     width: 1.81333rem;
     height: 0.96rem;
     line-height: 0.96rem;
     text-align: center; }
+
+.tooltip_bar_close {
+  width: 0.42667rem;
+  height: 1.6rem;
+  position: absolute;
+  right: 0.05333rem; }
+  .tooltip_bar_close img {
+    width: 0.42667rem;
+    height: 0.42667rem;
+    position: absolute;
+    top: 0.05333rem; }
 
 .per_bookShelf, .per_myCollection, .per_purchased {
   padding: 0.32rem 0.29333rem 0 0rem; }
@@ -371,13 +386,15 @@ a {
   height: 1.6rem;
   background-color: white;
   padding: 0.32rem;
-  border-bottom: 0.01333rem solid #ddd; }
+  border-bottom: 0.01333rem solid #ddd;
+  /*直播标识*/ }
   .course_item .course_item_book {
     width: 2.85333rem;
     height: 1.6rem;
     background-color: red;
     float: left;
-    margin-right: 0.26667rem; }
+    margin-right: 0.26667rem;
+    position: relative; }
     .course_item .course_item_book > img {
       width: 100%;
       height: 100%;
@@ -386,5 +403,18 @@ a {
     font-size: 0.4rem;
     color: #222;
     line-height: 0.53333rem; }
+  .course_item .course_item_play {
+    width: 1.2rem;
+    height: 0.32rem;
+    background-color: red;
+    position: absolute;
+    left: 0.10667rem;
+    top: 0.10667rem;
+    z-index: 100;
+    font-size: 0.24rem;
+    color: #fff;
+    line-height: 0.32rem;
+    display: inline-block;
+    text-align: center; }
 
 /*# sourceMappingURL=App.css.map */

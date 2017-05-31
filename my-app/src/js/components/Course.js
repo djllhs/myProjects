@@ -60,12 +60,18 @@ export default  class Course extends Component {
                         <div className="course_item"   onClick={this.viewCourse.bind(this,item)}  key={index}>
                             <div  className="course_item_book">
                                 <img src={item.thumbnails} alt=""/>
+                                <div className="course_item_play" style={{display: item.liveStatus ? "block" : 'none'}}>
+                                    {/*<img src={require('../../img/ic_playing@3x.png')} alt=""/>*/}
+                                    <span>正在直播</span>
+                                </div>
                             </div>
 
 
                             <div className="course_item_info">
                                 {item.name}
                             </div>
+
+
                         </div>
                     )
                 }) : <Null style={{display: display === 'block' ? "none" : 'block'}} text={msg}/>
