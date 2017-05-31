@@ -1,5 +1,7 @@
 ---
-title: 《JavaScript权威指南》笔记
+title: 《JavaScript权威指南》笔记   
+tags: JavaScript
+categories: JavaScript
 ---
 阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读
 <!-- more -->

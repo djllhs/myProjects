@@ -1,5 +1,7 @@
 ---
 title: 阅读《编写维护的javascript》一书简要笔记
+tags: 代码规范
+categories: JavaScript
 ---
 任何语言都需要强调编码风格的一致性。增强代码的可读性，可维护性是相当重要的。本书讲述的技巧和技术比较实用。
 <!-- more -->
@@ -403,3 +405,29 @@ title: 阅读《编写维护的javascript》一书简要笔记
 
 十二、浏览器嗅探
 ---------------------------
+1. User-Agent检测（用户代理检测）
+服务器介意获取到的浏览器的user-agent字符串，在客户端通过JavaScript的navigator.userAgent同样可以获取。为了保证JavaScript的正确执行，用户代理检测应该是没有办法的办法。如果要使用，最安全方法是只检测旧的浏览器。
+
+    if(isInternetExplorerOrEarlier){
+        // 处理IE8以及更早版本
+    }else{
+        // 处理其他浏览器
+    }
+
+2. 特性检测，为特定浏览器的特性进行测试，并仅当特性存在时即可饮用特性检测
+
+    function setAnimation(callback) {
+        if(window.requestAnimationFrame){ // 标准
+            return requestAnimationFrame(callback);
+        }else if(window.mozRequestAnimationFrame){ // Firefox
+            return mozRequestAnimationFrame(callback);
+        }else if(window.webkitRequestAnimationFrame){ // Webkit
+            return webkitRequestAnimationFrame(callback);
+        }else if(window.oRequestAnimationFrame){ // Opera
+            return oRequestAnimationFrame(callback);
+        }else {
+            return setTimeout(callback, 0);
+        }
+    }
+
+3. 避免特性推断

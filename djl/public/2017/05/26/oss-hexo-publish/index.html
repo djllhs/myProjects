@@ -16,21 +16,22 @@
 
 
 <meta name="description" content="oss对象存储用来搭建个人博客是我同事告诉我的，比较适合前端用，写点笔记。hexo部署到oss有一个注意的点就是oss不能使用相对路径进行访问（是用来存储的），比如访问a.com\b\并不会访问到其页面内容，需要在路径后面加上index.html.">
+<meta name="keywords" content="service">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oss+hexo 博客部署">
-<meta property="og:url" content="http://yoursite.com/2017/05/26/oss-hexo-publish/index.html">
+<meta property="og:url" content="http://djllhs.net/2017/05/26/oss-hexo-publish/index.html">
 <meta property="og:site_name" content="You and me">
 <meta property="og:description" content="oss对象存储用来搭建个人博客是我同事告诉我的，比较适合前端用，写点笔记。hexo部署到oss有一个注意的点就是oss不能使用相对路径进行访问（是用来存储的），比如访问a.com\b\并不会访问到其页面内容，需要在路径后面加上index.html.">
-<meta property="og:image" content="http://yoursite.com/images/1.png">
-<meta property="og:image" content="http://yoursite.com/images/2.png">
-<meta property="og:image" content="http://yoursite.com/images/3.png">
-<meta property="og:image" content="http://yoursite.com/images/4.png">
-<meta property="og:image" content="http://yoursite.com/images/5.png">
-<meta property="og:updated_time" content="2017-05-26T10:44:14.510Z">
+<meta property="og:image" content="http://djllhs.net/images/1.png">
+<meta property="og:image" content="http://djllhs.net/images/2.png">
+<meta property="og:image" content="http://djllhs.net/images/3.png">
+<meta property="og:image" content="http://djllhs.net/images/4.png">
+<meta property="og:image" content="http://djllhs.net/images/5.png">
+<meta property="og:updated_time" content="2017-05-31T03:20:45.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oss+hexo 博客部署">
 <meta name="twitter:description" content="oss对象存储用来搭建个人博客是我同事告诉我的，比较适合前端用，写点笔记。hexo部署到oss有一个注意的点就是oss不能使用相对路径进行访问（是用来存储的），比如访问a.com\b\并不会访问到其页面内容，需要在路径后面加上index.html.">
-<meta name="twitter:image" content="http://yoursite.com/images/1.png">
+<meta name="twitter:image" content="http://djllhs.net/images/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -39,7 +40,7 @@
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/bitbug_favicon.ico">
 
 
 
@@ -165,6 +166,8 @@
                         
                             <li><a href="/archives/index.html">所有文章</a></li>
                         
+                            <li><a href="/tags/">标签云</a></li>
+                        
                             <li><a href="/about/index.html">关于我</a></li>
                         
                         </ul>
@@ -185,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
                     </div>
                 </section>
                 
@@ -194,7 +197,7 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                      <a class="main-nav-link switch-friends-link" href="http://lizhhub.com">Zhuixun</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
                     
@@ -208,7 +211,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">俗称的女汉子，拥有一个彪悍的内心，不羁的性格。当然，从外表上看是猜不出来这妹纸是个程序员滴~我的生活理念：生活要充满色彩，充满乐趣，做一个不一样的技术性妹纸</div>
                 </section>
                 
             </div>
@@ -237,6 +240,8 @@
                     <li><a href="/">主页</a></li>
                 
                     <li><a href="/archives/index.html">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
                 
                     <li><a href="/about/index.html">关于我</a></li>
                 
@@ -285,8 +290,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/service/">service</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/service/">service</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -300,32 +313,30 @@
 <p> permalink: :year/:month/:day/:title/index.html</p>
 </li>
 <li><p>随意找个文件位置，创建文件oss_config.json</p>
-<pre><code>{
-  &quot;accessKeyId&quot;: &quot;&quot;,
-  &quot;accessKeySecret&quot;: &quot;&quot;,
-  &quot;endpoint&quot;: &quot;oss-cn-shanghai.aliyuncs.com&quot;,
-  &quot;bucketName&quot;: &quot;djllhs&quot;,
-  &quot;ossDomain&quot;: &quot;djllhs.oss-cn-shanghai.aliyuncs.com&quot;,
-  &quot;localDir&quot;: &quot;E:/DJling resource/djl/public/&quot;
-}
-</code></pre></li>
-</ol>
 <ul>
 <li><p>accessKeyId和accessKeySecret是在阿里云上生成的，鼠标移入个人的名称就会显示accesskeys的图标，点击，按照提示操作即可。没有就创建。将对应的accessKeyId和accessKeySecret填入对应的字段</p>
-<p>  <img src="/images/1.png" alt="alt text"></p>
+<p><img src="/images/1.png" alt="alt text"></p>
 </li>
 <li><p>从左侧导航中找到对象存储oss，点击进入概览，点击你的域名，进入Bucket概览页，找到下方的oss外网域名，复制到对应的字段ossDomain。鼠标移上去，点击显示的EndPoint。进入到访问域名和数据中心，找到你所在的地区，复制外网EndPoint到对应的字段endpoint</p>
-<p>  <img src="/images/2.png" alt="alt text"></p>
-<p>  <img src="/images/3.png" alt="alt text"></p>
-<p>  <img src="/images/4.png" alt="alt text"></p>
+<p><img src="/images/2.png" alt="alt text"></p>
+<p><img src="/images/3.png" alt="alt text"></p>
+<p><img src="/images/4.png" alt="alt text"></p>
 </li>
 <li><p>bucketName即为你的Bucket概览的名字</p>
-<p>  <img src="/images/5.png" alt="alt text"></p>
+<p><img src="/images/5.png" alt="alt text"></p>
 </li>
 <li><p>localDir的值为你的hexo博客的public的路径，如：E:/DJling resource/djl/public/</p>
-</li>
+<pre><code>{
+&quot;accessKeyId&quot;: &quot;&quot;,
+&quot;accessKeySecret&quot;: &quot;&quot;,
+&quot;endpoint&quot;: &quot;oss-cn-shanghai.aliyuncs.com&quot;,
+&quot;bucketName&quot;: &quot;djllhs&quot;,
+&quot;ossDomain&quot;: &quot;djllhs.oss-cn-shanghai.aliyuncs.com&quot;,
+&quot;localDir&quot;: &quot;E:/DJling resource/djl/public/&quot;
+}
+</code></pre></li>
 </ul>
-<ol>
+</li>
 <li><p>创建cdn.py,cdn的官方文档，用来刷新的，可去查阅</p>
 <pre><code>#!/usr/bin/python
 # -*- coding:utf-8 -*-
@@ -350,7 +361,7 @@ cdn_server_address = &apos;https://cdn.aliyuncs.com&apos;
 CONFIGFILE = os.getcwd() + &apos;/aliyun.ini&apos;
 CONFIGSECTION = &apos;Credentials&apos;
 cmdlist = &apos;&apos;&apos;
-接口说明请参照pdf文档
+// 接口说明请参照pdf文档
 &apos;&apos;&apos;
 
 def percent_encode(str):
@@ -423,9 +434,8 @@ def setup_credentials():
         print traceback.format_exc()
         print(&quot;can&apos;t get access key pair, use config --id=[accesskeyid] --secret=[accesskeysecret] to setup&quot;)
         sys.exit(1)
-</code></pre></li>
-</ol>
-<pre><code>if __name__ == &apos;__main__&apos;:
+
+if __name__ == &apos;__main__&apos;:
     parser = OptionParser(&quot;%s Action=action Param1=Value1 Param2=Value2\n&quot; % sys.argv[0])
     parser.add_option(&quot;-i&quot;, &quot;--id&quot;, dest=&quot;accesskeyid&quot;, help=&quot;specify access key id&quot;)
     parser.add_option(&quot;-s&quot;, &quot;--secret&quot;, dest=&quot;accesskeysecret&quot;, help=&quot;specify access key secret&quot;)
@@ -458,7 +468,7 @@ def setup_credentials():
             print(e.read().strip())
             raise SystemExit(e)
     make_request(user_params)
-</code></pre><ol>
+</code></pre></li>
 <li><p>创建配置文件aliyun.init</p>
 <pre><code>[Credentials]
 accesskeyid = LTAIowA8PvCJxEA8
@@ -485,10 +495,10 @@ python cdn.py Action=RefreshObjectCaches ObjectType=File ObjectPath=你的域名
         <p><span>本文标题:</span><a href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-26, 17:42:37</p>
-        <p><span>最后更新:</span>2017-05-26, 18:44:14</p>
+        <p><span>最后更新:</span>2017-05-31, 11:20:45</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/26/oss-hexo-publish/index.html" title="oss+hexo 博客部署">http://yoursite.com/2017/05/26/oss-hexo-publish/index.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/05/26/oss-hexo-publish/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/26/oss-hexo-publish/index.html" title="oss+hexo 博客部署">http://djllhs.net/2017/05/26/oss-hexo-publish/index.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/26/oss-hexo-publish/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -499,6 +509,12 @@ python cdn.py Action=RefreshObjectCaches ObjectType=File ObjectPath=你的域名
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/27/job-essays/index.html">
+                    工作随笔
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -571,7 +587,9 @@ python cdn.py Action=RefreshObjectCaches ObjectType=File ObjectPath=你的域名
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/05/27/job-essays/index.html" title="上一篇: 工作随笔">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -583,7 +601,7 @@ python cdn.py Action=RefreshObjectCaches ObjectType=File ObjectPath=你的域名
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-essays/index.html">Atom essays</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
 
 
 

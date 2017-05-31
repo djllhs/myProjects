@@ -1,7 +1,8 @@
 ---
 title: oss+hexo 博客部署
 date: 2017-05-26 17:42:37
-tags:
+tags: service
+categories: service
 ---
 oss对象存储用来搭建个人博客是我同事告诉我的，比较适合前端用，写点笔记。hexo部署到oss有一个注意的点就是oss不能使用相对路径进行访问（是用来存储的），比如访问a.com\b\并不会访问到其页面内容，需要在路径后面加上index.html.
 <!--- more --->
@@ -12,21 +13,11 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
 
 2. 随意找个文件位置，创建文件oss_config.json
 
-        {
-          "accessKeyId": "",
-          "accessKeySecret": "",
-          "endpoint": "oss-cn-shanghai.aliyuncs.com",
-          "bucketName": "djllhs",
-          "ossDomain": "djllhs.oss-cn-shanghai.aliyuncs.com",
-          "localDir": "E:/DJling resource/djl/public/"
-        }
-
-
-* accessKeyId和accessKeySecret是在阿里云上生成的，鼠标移入个人的名称就会显示accesskeys的图标，点击，按照提示操作即可。没有就创建。将对应的accessKeyId和accessKeySecret填入对应的字段
+    + accessKeyId和accessKeySecret是在阿里云上生成的，鼠标移入个人的名称就会显示accesskeys的图标，点击，按照提示操作即可。没有就创建。将对应的accessKeyId和accessKeySecret填入对应的字段
 
     ![alt text](/images/1.png)
 
-* 从左侧导航中找到对象存储oss，点击进入概览，点击你的域名，进入Bucket概览页，找到下方的oss外网域名，复制到对应的字段ossDomain。鼠标移上去，点击显示的EndPoint。进入到访问域名和数据中心，找到你所在的地区，复制外网EndPoint到对应的字段endpoint
+    + 从左侧导航中找到对象存储oss，点击进入概览，点击你的域名，进入Bucket概览页，找到下方的oss外网域名，复制到对应的字段ossDomain。鼠标移上去，点击显示的EndPoint。进入到访问域名和数据中心，找到你所在的地区，复制外网EndPoint到对应的字段endpoint
 
     ![alt text](/images/2.png)
 
@@ -34,12 +25,19 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
 
     ![alt text](/images/4.png)
 
-* bucketName即为你的Bucket概览的名字
+    + bucketName即为你的Bucket概览的名字
 
     ![alt text](/images/5.png)
 
-* localDir的值为你的hexo博客的public的路径，如：E:/DJling resource/djl/public/
-
+    + localDir的值为你的hexo博客的public的路径，如：E:/DJling resource/djl/public/
+          {
+          "accessKeyId": "",
+          "accessKeySecret": "",
+          "endpoint": "oss-cn-shanghai.aliyuncs.com",
+          "bucketName": "djllhs",
+          "ossDomain": "djllhs.oss-cn-shanghai.aliyuncs.com",
+          "localDir": "E:/DJling resource/djl/public/"
+          }
 
 3. 创建cdn.py,cdn的官方文档，用来刷新的，可去查阅
 
@@ -66,7 +64,7 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
         CONFIGFILE = os.getcwd() + '/aliyun.ini'
         CONFIGSECTION = 'Credentials'
         cmdlist = '''
-        接口说明请参照pdf文档
+        // 接口说明请参照pdf文档
         '''
 
         def percent_encode(str):
@@ -139,8 +137,6 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
                 print traceback.format_exc()
                 print("can't get access key pair, use config --id=[accesskeyid] --secret=[accesskeysecret] to setup")
                 sys.exit(1)
-
-
 
         if __name__ == '__main__':
             parser = OptionParser("%s Action=action Param1=Value1 Param2=Value2\n" % sys.argv[0])

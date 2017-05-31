@@ -10,14 +10,14 @@ menu:
   主页: /
   所有文章: /archives/index.html
   #随笔: /tags/随笔
-  #标签云: /tags/
+  标签云: /tags/
   关于我: /about/index.html
 
 # Link to your avatar | 填写头像地址
 avatar: /img/author.jpg
 
 # Small icon of Your site | 站点小图标地址
-favicon: /favicon.png
+favicon: /bitbug_favicon.ico
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言
@@ -45,9 +45,9 @@ subnav:
   GitHub: "https://github.com/djllhs"
   #V2EX: "#"
   RSS: "/atom.xml"
-  #知乎: "zhihu"
-  #豆瓣: "douban"
-  #简书: "jianshu"
+  # 知乎: "zhihu"
+  # 豆瓣: "douban"
+  # 简书: "jianshu"
   #SegmentFault: ""
   #博客园: "cnblogs"
   #CSDN: ""
@@ -181,13 +181,13 @@ tagcloud: true
 
 # Blogroll, Link exchange | 友情链接
 friends:
-  Hexo: https://hexo.io
+  Zhuixun: http://lizhhub.com
   GitHub: https://pages.github.com/
   MOxFIVE: http://moxfive.xyz/
 #friends: false
 
 #是否开启“关于我”。
-aboutme: 专注于前端
+aboutme: 俗称的女汉子，拥有一个彪悍的内心，不羁的性格。当然，从外表上看是猜不出来这妹纸是个程序员滴~我的生活理念：生活要充满色彩，充满乐趣，做一个不一样的技术性妹纸
 #aboutme: false
 
 # Open link in a new tab | 是否在新窗口打开链接
