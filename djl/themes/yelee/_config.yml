@@ -40,11 +40,11 @@ since: 2017
 ## https://github.com/hexojs/hexo-generator-feed
 
 subnav:
-  Email: "mailto:123@123.com"
-  #新浪微博: "sina weibo"
-  GitHub: "https://github.com/djllhs"
+#  Email: "mailto:123@123.com"
+  新浪微博: "http://weibo.com/"
+  GitHub: "https://githu/b.com/djllhs"
   #V2EX: "#"
-  RSS: "/atom.xml"
+#  RSS: "/atom.xml"
   # 知乎: "zhihu"
   # 豆瓣: "douban"
   # 简书: "jianshu"
@@ -60,7 +60,7 @@ subnav:
   #Quora: ""
   #Facebook: "#"
   #Google: "#"
-  #Twitter: "#"
+  Twitter: "https://twitter.com/"
   #LinkedIn: "#"
   #QQ: "#"
   #微信: "Wechat"
@@ -104,8 +104,8 @@ duoshuo:
   # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
 
 youyan:
-  #on: true
-  id:
+  on: true
+  id: 2135390
   # 是否开启友言评论，http://www.uyan.cc/index.php
   # id 中填写你的友言用户数字ID，注册后进入后台管理即可查看
   # 友言服务在 Web 环境下运行，普通本地环境无法查看，请部署后在线上测试。
@@ -127,7 +127,7 @@ base_font_size: 16  #px, 16 - 24
 color_scheme:
 
 highlight_style:
-  #on: true
+  on: true
   inline_code: 1  # Value: 0 - 9 可选
   code_block: 1  # Value: 0 - 4
   # Set inline_code to style highlight text
