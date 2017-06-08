@@ -13,3 +13,5 @@ sublime text3 的一些常用的快捷键
 2. F11          // 切换全屏
 3. shift + F11  // 切换为代码全屏
 4. Backspace    // 左删除
+5.Ctrl+ Shift+p，输入view，选择Toggle menu  //  开启菜单
+6.Ctrl+w        // 关闭tab

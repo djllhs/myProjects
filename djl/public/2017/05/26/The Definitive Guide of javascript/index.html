@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="djllhs" />
+
+
+
+<meta name="description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript权威指南》笔记">
+<meta property="og:url" content="http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html">
+<meta property="og:site_name" content="You and me">
+<meta property="og:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
+<meta property="og:updated_time" content="2017-08-21T10:11:28.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript权威指南》笔记">
+<meta name="twitter:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="You and me" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/bitbug_favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>《JavaScript权威指南》笔记 | You and me</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+<div id="container">
+  <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/author.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">djllhs</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/index.html">所有文章</a></li>
+                        
+                            <li><a href="/tags/index.html">标签云</a></li>
+                        
+                            <li><a href="/about/index.html">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://githu/b.com/djllhs" title="GitHub"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/head标签/">head标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html简介/">html简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://lizhhub.com">Zhuixun</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">俗称的女汉子，拥有一个彪悍的内心，不羁的性格。当然，从外表上看是猜不出来这妹纸是个程序员滴~我的生活理念：生活要充满色彩，充满乐趣，做一个不一样的技术性妹纸</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+  </div>
+  <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">djllhs</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/author.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">djllhs</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/index.html">所有文章</a></li>
+                
+                    <li><a href="/tags/index.html">标签云</a></li>
+                
+                    <li><a href="/about/index.html">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://githu/b.com/djllhs" title="GitHub"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+    <div class="body-wrap"><article id="post-The Definitive Guide of javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/26/The Definitive Guide of javascript/index.html" class="article-date">
+      <time datetime="2017-05-26T07:12:36.606Z" itemprop="datePublished">2017-05-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《JavaScript权威指南》笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读<br><a id="more"></a></p>
+<p>@(我的笔记)</p>
+<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1. 字符集"></a>1. 字符集</h3><ul>
+<li>区分大小写，关键字、变量、函数名和所有的标识符都必须采取一致的大小写形式。</li>
+<li>空格、换行符和格式控制符， js一般会忽略空格和换行符，Unicode格式控制符可用在注释、字符串直接量和正则表达式直接量中，不能用在标识符（如变量名）中</li>
+<li><p>Unicode转义序列，以\u为前缀，用法同上</p>
+<h3 id="2-注释"><a href="#2-注释" class="headerlink" title="2.注释"></a>2.注释</h3><p> // 这里是单行注释<br> /<em>这里是一段注释</em>/ // 这里是另一段注释<br> /<em>
+  </em>这又是一段注释<br>  <em>这里的注释可以连写多行
+  </em>/</p>
+</li>
+</ul>
+<h3 id="3-直接量"><a href="#3-直接量" class="headerlink" title="3.直接量"></a>3.直接量</h3><p>即程序中直接使用的数据值，如12,1.2，“hello world”等</p>
+<h3 id="4-标识符和保留字"><a href="#4-标识符和保留字" class="headerlink" title="4.标识符和保留字"></a>4.标识符和保留字</h3><ol>
+<li>标识符</li>
+</ol>
+<ul>
+<li>必须以字母、下划线（_）或美元符号（$）开始</li>
+<li>数字不允许作为首字符</li>
+</ul>
+<ol>
+<li><p>保留字</p>
+<pre><code>break     delete    function    return    typeof
+case      do        if          switch    var
+catch     else      in          this      void
+continue  false     instanceof  throw     while
+debugger  for       new         true      with
+default   finally   null        try
+</code></pre></li>
+</ol>
+<ul>
+<li><p>ECMAScript5 关键字</p>
+<pre><code>class  const  enum  export  extends  import  super
+</code></pre></li>
+<li><p>严格模式下的保留字</p>
+<pre><code>implements let private public  yield  interface  package  protected static
+</code></pre></li>
+<li><p>JavaScript预定义的全局变量和函数</p>
+<pre><code>arguments           encodeURI             Infinity   Number         RegExp
+Array               encodeURIComponent    isFinite   Object         String
+Boolean             Error                 isNaN      parseFloat     SyntaxError
+Date                eval                  JSON       parseInt       TypeError
+decodeURI           EvalError             Math       RangeError     undefined
+decodeURIComponent  Function              NaN        ReferenceError URIError
+</code></pre></li>
+</ul>
+<ol>
+<li><p>可选的分号</p>
+<pre><code>// 第一个分号可省略
+a = 3;
+b = 4;
+
+// 第一个分号不能省略
+a = 3; b = 4;
+</code></pre></li>
+</ol>
+<ul>
+<li>以“（”、“[”、“/”、“+”或“-”开始，建议加上分号</li>
+<li>在return、break和continue后的表达式之间不能有换行</li>
+</ul>
+<h2 id="二、类型、值和变量"><a href="#二、类型、值和变量" class="headerlink" title="二、类型、值和变量"></a>二、类型、值和变量</h2><p>数据类型： 原始类型和对象类型<br>原始类型： 数字、字符串、null、undefined</p>
+<h3 id="1-数字"><a href="#1-数字" class="headerlink" title="1. 数字"></a>1. 数字</h3><ul>
+<li>整型直接量<ul>
+<li>十进制，数字序列</li>
+<li>十六进制，以“0x”或“0X”为前缀，由0~9和a（A）~f（F）构成</li>
+</ul>
+</li>
+<li>浮点型直接量<ul>
+<li>含小数点，有整数和小数部分</li>
+<li>指数记数，实数后跟e或E，再跟正负号，再加一个整型的指数， 如 6.02e23</li>
+</ul>
+</li>
+<li><p>算数运算，溢出、下溢或被零整除不报错</p>
+<ul>
+<li>溢出，值为Infinity（无穷大），或-Infinity（负无穷大）</li>
+<li>下溢，结果无限接近0，比js能表示的最小值还小。此时返回0或负零</li>
+<li><p>被零整除，返回Infinity或-Infinity。0/0 返回NaN</p>
+<pre><code>Infinity                                       // 建一个可读/写的变量初始化为Infinity
+Number.POSITIVE_INFINITY                       // 同样的值，只读
+1 / 0                                          // 同样的值
+Number.MAX_VALUE + 1                           // Infinity
+
+Number.NEGATIVE_INFINITY                       // 负无穷大
+-Infinity
+-1 / 0
+-Number.MAX_VALUE - 1
+
+NaN                                            //将一个可读/写的变量初始化为NaN
+Number.NaN                                     // 同样的值，只读
+0 / 0                                          // NaN
+
+Numer.MIN_VALUE / 2                            // 发生下溢， 为0
+-Number.MIN_VALUE / 2                          // 负零
+-1 / Infiity                                   // 负零
+-0                     
+</code></pre><ul>
+<li>NaN 和任何值都不等，包括本身。判断是否为NaN，使用 x != x，true则为NaN，反之亦然。isNaN（）函数</li>
+<li>isFinite（），参数不为NaN，Infinity或-Infinity时为true</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>二进制浮点数和四舍五入错误<br>二进制浮点数不能精确表示类似0.1这样简单的数字，计算结果也不精确</li>
+</ul>
+<h3 id="2-文本"><a href="#2-文本" class="headerlink" title="2. 文本"></a>2. 文本</h3><ul>
+<li>字符串直接量，即由单引号或双引号括起来的字符序列<br>  注： ECMAScript3中，字符串直接量必须写在一行中。<pre><code>ECMAScript5中，可拆分为数行，每行必须Yi反斜线（\）结束
+</code></pre></li>
+<li><p>转义字符</p>
+<pre><code>\o                        //NULL字符
+\b                        //退格符
+\t                        //制表符
+\n                        //换行符
+\v                        //垂直制表符
+\f                        //换页符
+\r                        //回车符
+\&quot;                        //双引号
+\&apos;                        // 单引号或撇号
+\\                        // 反斜线
+</code></pre></li>
+<li><p>字符串的使用</p>
+<ul>
+<li>字符串连接，+</li>
+<li>字符串长度， length属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-布尔值，true和false"><a href="#3-布尔值，true和false" class="headerlink" title="3.  布尔值，true和false"></a>3.  布尔值，true和false</h3><p>undefined， null，0，-0，NaN，””  —&gt; false<br>所有其他值，包括所有对象（数组）—&gt; true</p>
+<h3 id="4-null和undefined"><a href="#4-null和undefined" class="headerlink" title="4.  null和undefined"></a>4.  null和undefined</h3><ul>
+<li>null，描述“空值”，typeof null –&gt; “object”</li>
+<li>undefined，表示值的空缺，未定义，变量没有初始化。 typeof undefined –&gt; “undefined”<br>null == undefined but  null !== undefined</li>
+</ul>
+<h3 id="5-不可变的原始值和可变的对象引用"><a href="#5-不可变的原始值和可变的对象引用" class="headerlink" title="5. 不可变的原始值和可变的对象引用"></a>5. 不可变的原始值和可变的对象引用</h3><ul>
+<li>原始值是不可更改的：任何方法都无法更改一个原始值</li>
+<li>原始值的比较是值的比较</li>
+<li><p>对象的比较是引用的比较，如比较两个认读的对象或者数组</p>
+<pre><code>function equalArrays(a, b){
+    if(a.length != b.length ) return false;
+    for(var i = 0; i &lt; a.length; i++)
+        if(a[i] !== b[i]) return false;
+    return true;
+}
+</code></pre></li>
+</ul>
+<h3 id="6-类型转换"><a href="#6-类型转换" class="headerlink" title="6.类型转换"></a>6.类型转换</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th style="text-align:right">转换为字符串</th>
+<th style="text-align:left">数字</th>
+<th style="text-align:left">布尔值</th>
+<th>对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>undefined</td>
+<td style="text-align:right">“undefined”</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">false</td>
+<td>throws TypeError</td>
+</tr>
+<tr>
+<td>null</td>
+<td style="text-align:right">“null”</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">false</td>
+<td>throws TypeError</td>
+</tr>
+<tr>
+<td>true</td>
+<td style="text-align:right">“true”</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td>new Boolean(true)</td>
+</tr>
+<tr>
+<td>false</td>
+<td style="text-align:right">“false”</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td>new Boolean(false)</td>
+</tr>
+<tr>
+<td>“”(空字符串)</td>
+<td style="text-align:right"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">false</td>
+<td>new String(“”)</td>
+</tr>
+<tr>
+<td>“1.2”(非空，数字)</td>
+<td style="text-align:right"></td>
+<td style="text-align:left">1.2</td>
+<td style="text-align:left">true</td>
+<td>new String(“1.2”)</td>
+</tr>
+<tr>
+<td>“one”(非空，非数字)</td>
+<td style="text-align:right"></td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">true</td>
+<td>new String(“one”)</td>
+</tr>
+<tr>
+<td>0</td>
+<td style="text-align:right">“0”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">false</td>
+<td>new Number(0)</td>
+</tr>
+<tr>
+<td>-0</td>
+<td style="text-align:right">“0”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">false</td>
+<td>new Number(-0)</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td style="text-align:right">“NaN”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">false</td>
+<td>new Number(NaN)</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td style="text-align:right">“Infinity”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">true</td>
+<td>new Number(Infinity)</td>
+</tr>
+<tr>
+<td>-Infinity</td>
+<td style="text-align:right">“-Infinity”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">true</td>
+<td>new Number(-Infinity)</td>
+</tr>
+<tr>
+<td>1(无穷大，非零)</td>
+<td style="text-align:right">“1”</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">true</td>
+<td>new Number(1)</td>
+</tr>
+<tr>
+<td>{} (任意对象)</td>
+<td style="text-align:right">参考6.3</td>
+<td style="text-align:left">参考6.3</td>
+<td style="text-align:left">true</td>
+<td></td>
+</tr>
+<tr>
+<td>[] (任意数组)</td>
+<td style="text-align:right">“”</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">true</td>
+<td></td>
+</tr>
+<tr>
+<td>[9] (1个数字元素)</td>
+<td style="text-align:right">“9”</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">true</td>
+<td></td>
+</tr>
+<tr>
+<td>[‘a’] (其他数组)</td>
+<td style="text-align:right">使用join()方法</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">true</td>
+<td></td>
+</tr>
+<tr>
+<td>function(){} (任意函数)</td>
+<td style="text-align:right">参考6.3</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">true</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>6.1. 转换和相等性 ，一个值转换为另一个值并不意味着两个值相等</li>
+<li>6.2<ul>
+<li>显示类型转换，最简单的方法是使用Boolean()、Number()、String()或Object()函数。注：除了null或undefined之外的任何值都具有toString（）方法</li>
+<li>隐式类型转换，如使用一元”+”，一元”!”。 Number类定义的toString（）可接受表示转换基数的可选参数，parseInt（）第二个可选参数也为转换基数</li>
+</ul>
+</li>
+<li><p>6.3 对象转换为原始值。</p>
+<ul>
+<li>对象转换布尔值：所有的对象都转换为true</li>
+<li><p>对象转换字符串和数字：<br>对象到字符串，先toString(),若没有该方法则valueOf（）。否则抛出类型错误异常。<br>对象到数字，先valueOf(),若没有该方法则toString（），否则抛出类型错误异常。</p>
+<ul>
+<li><p>toString()，返回一个反映这个对象的字符串</p>
+<ul>
+<li>数组类的toString()方法将每个数组元素转换为字符串，并在元素之间添加逗号后合并成结果字符串</li>
+<li>函数类的toString()方法返回了这个函数的实现定义的表示方式，即该函数的JavaScript源代码字符串</li>
+<li>日期类的toString()方法返回一个可读的日期和时间字符串</li>
+<li><p>RegExp类的toString()将其转换为表示正则表达式直接量的字符串</p>
+<pre><code>[1, 2, 3].toString()  // &quot;1,2,3&quot;
+(function(x) { f(x); }).toString(); // &quot;function(x){\n f(x); \n}&quot;
+/\d+/g.toString(); // &quot;/\d+/g&quot;
+new Date(2010, 0, 1).toString(); // &quot;Mon Jun 19 2017 00:00:00 GMT+0800 (中国标准时间)&quot;
+</code></pre></li>
+</ul>
+</li>
+<li><p>valueOf()，返回对象本身，日期类返回1970.01.01以来的毫秒数</p>
+<pre><code>var now = new Date()
+typeof(now + 1);  // &quot;string&quot;, &quot;+&quot;将日期转换为字符串
+typeof(now - 1); // &quot;number&quot;， “-”使用对象到数字的转换
+now == now.toString(); // true， 隐式的和显示的字符串转换
+now &gt; (now - 1); // true， “&gt;” 将日期转换为数字
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6.4 变量声明，使用关键字var来声明 ，一个var可声明多个变量，也可将变量的初始赋值和变量声明合写在一起。未赋值的初始值为undefined</li>
+<li><p>6.5 变量作用域，全局变量拥有全局作用域，函数体内的变量是局部变量，函数参数也是局部变量，作用域为该函数。在函数体内，局部变量的优先级高于同名的全局变量</p>
+<ul>
+<li><p>函数作用域和声明提前。函数朱用语是指在函数内声明的所有变量在函数体内始终是可见的。声明提前是指变量在声明之前可以使用，实际上是变量被提前至函数体的顶部或者全局顶部进行声明，当然值为undefined</p>
+<pre><code>var scope = &apos;global&apos;;
+function f(){
+    console.log(scope); // undefined
+    var scope = &apos;local&apos;;
+    console.log(scope); // local
+}
+</code></pre></li>
+<li>作为属性的变量，使用var声明的变量不能通过delete删除。在非严格模式给一个未声明的变量赋值，可以删除</li>
+<li>作用域链，是一个对象列表或者链表。在js的最顶层代码中，作用域链由一个全局对象组成。在不包含嵌套的函数体内，作用域链上有两个对象，第一个是定义函数参数和局部变量的对象，第二个是全局对象。在一个嵌套的函数体内，作用域链上至少有三个对象.</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、表达式和运算符"><a href="#三、表达式和运算符" class="headerlink" title="三、表达式和运算符"></a>三、表达式和运算符</h2><h3 id="1-原始表达式，包含常量或直接量、关键字和变量"><a href="#1-原始表达式，包含常量或直接量、关键字和变量" class="headerlink" title="1.原始表达式，包含常量或直接量、关键字和变量"></a>1.原始表达式，包含常量或直接量、关键字和变量</h3><h3 id="2-对象和数组的初始化表达式"><a href="#2-对象和数组的初始化表达式" class="headerlink" title="2.对象和数组的初始化表达式"></a>2.对象和数组的初始化表达式</h3><ol>
+<li>数组初始化表达式，通过一对方括号和其内由逗号隔开的列表构成的。数组直接量中的列表逗号之间的元素可以省略，则空位填充值undefined。结尾处可以留下单个逗号</li>
+<li>对象初始化表达式，也称“函数直接量”，</li>
+<li>由一对花括号和其内由的表达式（包含一个属性名和一个冒号作为前缀）组成</li>
+</ol>
+<h3 id="3-函数定义表达式"><a href="#3-函数定义表达式" class="headerlink" title="3.函数定义表达式"></a>3.函数定义表达式</h3><p>包含关键字function，然后是一对圆括号，括号内是一个以逗号分割的列表，列表包含0个或多个标识符（参数），最后跟花括号包含的代码块</p>
+<pre><code>var square = function(x){
+     return x*x
+}
+</code></pre><h3 id="4-属性访问表达式"><a href="#4-属性访问表达式" class="headerlink" title="4.属性访问表达式"></a>4.属性访问表达式</h3><pre><code>expression.identifier
+expression[expression] //属性名称是一个保留字或者包含空格和标点符号或是一个数字，使用此方式
+</code></pre><h3 id="5-调用表达式"><a href="#5-调用表达式" class="headerlink" title="5.调用表达式"></a>5.调用表达式</h3><p>是一种调用（或者执行）函数或方法的语法表示</p>
+<h3 id="6-对象创建表达式"><a href="#6-对象创建表达式" class="headerlink" title="6.对象创建表达式"></a>6.对象创建表达式</h3><p>创建一个对象并调用一个函数（构造函数）初始化新对象的属性，多了一个关键字new</p>
+<pre><code>new Object();
+new Point(2,3);
+</code></pre><h3 id="7-运算符概述"><a href="#7-运算符概述" class="headerlink" title="7.运算符概述"></a>7.运算符概述</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:right">操作</th>
+<th style="text-align:right">A</th>
+<th style="text-align:right">N</th>
+<th style="text-align:center">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">++</td>
+<td style="text-align:right">前/后增量</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">lval —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">–</td>
+<td style="text-align:right">前/后减量</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">lval —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">-</td>
+<td style="text-align:right">求反</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">num —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:right">转换为数字</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">num —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">~</td>
+<td style="text-align:right">按位求反</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">!</td>
+<td style="text-align:right">逻辑非</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">bool —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">delete</td>
+<td style="text-align:right">删除属性</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">lval —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">typeof</td>
+<td style="text-align:right">检测操作数类型</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">any —&gt; str</td>
+</tr>
+<tr>
+<td style="text-align:left">void</td>
+<td style="text-align:right">返回undefined值</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">any —&gt; undefined</td>
+</tr>
+<tr>
+<td style="text-align:left">*、/、%</td>
+<td style="text-align:right">乘、除、求余</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">num,num —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">+、-</td>
+<td style="text-align:right">加、减</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">num,num —&gt; num</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:right">字符串连接</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">str,str —&gt; str</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;&lt;</td>
+<td style="text-align:right">左移位</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">&gt;&gt;</td>
+<td style="text-align:right">有符号右移</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">&gt;&gt;&gt;</td>
+<td style="text-align:right">无符号左移</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;、&lt;=、&gt;、&gt;=</td>
+<td style="text-align:right">比较数字顺序</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">num,num —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;、&lt;=、&gt;、&gt;=</td>
+<td style="text-align:right">比较在字母表中的顺序</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">str,str —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">instanceof</td>
+<td style="text-align:right">测试对象类</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">obj,func —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">in</td>
+<td style="text-align:right">测试属性是否存在</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">str,obj —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">==</td>
+<td style="text-align:right">判断相等</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">!=</td>
+<td style="text-align:right">判断不相等</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">===</td>
+<td style="text-align:right">判断恒等</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">!==</td>
+<td style="text-align:right">判断非恒等</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; bool</td>
+</tr>
+<tr>
+<td style="text-align:left">&amp;</td>
+<td style="text-align:right">按位与</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:right">按位异或</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">&brvbar;</td>
+<td style="text-align:right">按位或</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">int,int —&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:left">&amp;&amp;</td>
+<td style="text-align:right">逻辑与</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; any</td>
+</tr>
+<tr>
+<td style="text-align:left">&brvbar;&brvbar;</td>
+<td style="text-align:right">逻辑或</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; any</td>
+</tr>
+<tr>
+<td style="text-align:left">?:</td>
+<td style="text-align:right">条件运算符</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">bool, any, any —&gt; any</td>
+</tr>
+<tr>
+<td style="text-align:left">=</td>
+<td style="text-align:right">变量赋值或属性对象赋值</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">lval, any —&gt; any</td>
+</tr>
+<tr>
+<td style="text-align:left">*=, /=, %=, +=, -=, &amp;=, ^=, &brvbar;=, &lt;&lt;=, &gt;&gt;=, &gt;&gt;&gt;=</td>
+<td style="text-align:right">运算且赋值</td>
+<td style="text-align:right">R</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">lval, any —&gt; any</td>
+</tr>
+<tr>
+<td style="text-align:left">,</td>
+<td style="text-align:right">忽略第一个操作数,返回第二个操作数</td>
+<td style="text-align:right">L</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">any,any —&gt; any</td>
+</tr>
+</tbody>
+</table>
+<p>注：属性访问表达式和调用表达式优先级高于表格所有运算，typeof优先级低于前者，高于后者</p>
+<h3 id="8-算数表达式"><a href="#8-算数表达式" class="headerlink" title="8.算数表达式"></a>8.算数表达式</h3><ul>
+<li><p>“+”运算符，可以对两个数字做加法，也可以做字符串连接操作</p>
+<pre><code>1 + 2   // 3 加法
+&quot;1&quot; + &quot;2&quot;  // &quot;12&quot;,字符串连接
+&quot;1&quot; + 2  // &quot;12&quot;，数字转换为字符串后进行字符串连接
+1 + {}  // &quot;1[object Object]&quot;,对象转换为字符串后进行字符串连接
+true + true // 2,布尔值转为字符串后相加
+2 + null  // 2, null转为0，相加
+2 + undefined // NaN, undefined转为NaN，相加
+</code></pre></li>
+<li><p>一元算术运算符 （+，-，++，–），作用于一个单独的操作数</p>
+<ul>
+<li>一元加（+），将操作数转为数字（或NaN）并返回</li>
+<li>一元减（-），将操作数转为数字，改变运算结果符号，并返回</li>
+<li><p>递增（++）,</p>
+<ul>
+<li>前增量，操作数在前，返回计算前的值.先赋值后计算</li>
+<li><p>后增量，操作数在后，返回计算后的值。先计算后赋值。</p>
+<pre><code>var i = 1, j = ++i;  // i=2,j=2
+var i = 1, j = i++;  // i=2,j=1
+</code></pre></li>
+</ul>
+</li>
+<li><p>递减（–），同递增</p>
+</li>
+</ul>
+</li>
+<li><p>位运算符</p>
+<ul>
+<li>按位与（&amp;）,二者同为1，结果为1</li>
+<li>按位或（|），二者至少1个为1，结果为1</li>
+<li>按位异或（^），二者只有一个为1，结果为1</li>
+<li>按位非（~），操作数所有位取反</li>
+<li>左移（&lt;&lt;），将第一个操作数的所有二进制位左移，第二个操作数为移动的位数</li>
+<li>带符号右移（&gt;&gt;），将第一个操作数的所有二进制位右移，第二个操作数为移动的位数</li>
+<li>无符号右移（&gt;&gt;&gt;），同无符号右移，只是左边的最高位总是填补0</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-关系表达式"><a href="#9-关系表达式" class="headerlink" title="9.关系表达式"></a>9.关系表达式</h3><ul>
+<li><p>9.1相等和不等运算符</p>
+<ul>
+<li><p>===， 检测两个操作数是否严格相等，无类型转换，即值和类型均相等</p>
+<ul>
+<li>类型不同，不等</li>
+<li>都是null或者都是undefined，不等</li>
+<li>一个是NaN或者都是NaN，不等（NaN和任何值都不等，包括本身，x !== x ==&gt; tue,为NaN）</li>
+<li><p>两个引用值指向不同的对象，不等</p>
+</li>
+<li><p>都是布尔值true或都是布尔值false，相等</p>
+</li>
+<li>都是数字且值相等，相等</li>
+<li>0 === -0</li>
+<li>都是字符串且所含的对应位上的16位数完全相等，相等</li>
+<li>两个人引用值指向同一个对象、数组或函数，相等</li>
+</ul>
+</li>
+<li><p>==， 检测两个操作数是否相等，可以允许类型转换</p>
+<ul>
+<li>null == undefined // true</li>
+</ul>
+</li>
+<li>!==, 不严格相等，严格相等求反</li>
+<li><p>!=,不相等，相等求反</p>
+<p>注：对象的比较是引用的比较，对象和其本身是相等的，但和其他任何对象都不相等。</p>
+<p>若两个不同的对象具有相同数量的属性，相同的属性名和值，依然不相等。</p>
+<p>相应位置的数组元素是相等的，两个数组也是不相等的。</p>
+</li>
+</ul>
+</li>
+<li><p>9.2比较运算符</p>
+<ul>
+<li>两个操作数要进行类型的转换</li>
+<li>字符串比较是区分大小写的，所有的大写的ASCII字母都“小于”小写的ASCII字母，如”Zoo”&lt;”aardvaek”结果为true</li>
+<li>只有两个操作数都为字符串时才进行字符串的比较</li>
+<li>小于等于运算符相当于不大于，大于等于运算符相当于不小于。</li>
+<li>当其中一个操作数为NaN时，所有4个比较运算符均返回false</li>
+</ul>
+</li>
+<li><p>9.3 in运算符<br>  若右侧的对象拥有一个名为左操作数的属性名，返回true</p>
+<pre><code>var point = {x: 1, y:2};
+&quot;x&quot; in point; // true
+&quot;z&quot; in point; // false
+</code></pre></li>
+<li><p>9.4 instanceof运算符<br>  若左侧的对象是右侧的实例，返回true，否则返回false</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
+        <p><span>发布时间:</span>2017-05-26, 15:12:36</p>
+        <p><span>最后更新:</span>2017-08-21, 18:11:28</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/26/The Definitive Guide of javascript/index.html" title="《JavaScript权威指南》笔记">http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/26/oss-hexo-publish/index.html">
+                    oss+hexo 博客部署
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/05/26/javascript standard/index.html">
+                    阅读《编写维护的javascript》一书简要笔记
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、词法结构"><span class="toc-number">1.</span> <span class="toc-text">一、词法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符集"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注释"><span class="toc-number">1.2.</span> <span class="toc-text">2.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-直接量"><span class="toc-number">1.3.</span> <span class="toc-text">3.直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-标识符和保留字"><span class="toc-number">1.4.</span> <span class="toc-text">4.标识符和保留字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、类型、值和变量"><span class="toc-number">2.</span> <span class="toc-text">二、类型、值和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数字"><span class="toc-number">2.1.</span> <span class="toc-text">1. 数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本"><span class="toc-number">2.2.</span> <span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔值，true和false"><span class="toc-number">2.3.</span> <span class="toc-text">3.  布尔值，true和false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null和undefined"><span class="toc-number">2.4.</span> <span class="toc-text">4.  null和undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-不可变的原始值和可变的对象引用"><span class="toc-number">2.5.</span> <span class="toc-text">5. 不可变的原始值和可变的对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-类型转换"><span class="toc-number">2.6.</span> <span class="toc-text">6.类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、表达式和运算符"><span class="toc-number">3.</span> <span class="toc-text">三、表达式和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原始表达式，包含常量或直接量、关键字和变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.原始表达式，包含常量或直接量、关键字和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对象和数组的初始化表达式"><span class="toc-number">3.2.</span> <span class="toc-text">2.对象和数组的初始化表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-函数定义表达式"><span class="toc-number">3.3.</span> <span class="toc-text">3.函数定义表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-属性访问表达式"><span class="toc-number">3.4.</span> <span class="toc-text">4.属性访问表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-调用表达式"><span class="toc-number">3.5.</span> <span class="toc-text">5.调用表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-对象创建表达式"><span class="toc-number">3.6.</span> <span class="toc-text">6.对象创建表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-运算符概述"><span class="toc-number">3.7.</span> <span class="toc-text">7.运算符概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-算数表达式"><span class="toc-number">3.8.</span> <span class="toc-text">8.算数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-关系表达式"><span class="toc-number">3.9.</span> <span class="toc-text">9.关系表达式</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"《JavaScript权威指南》笔记　| You and me　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2135390';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/05/26/oss-hexo-publish/index.html" title="上一篇: oss+hexo 博客部署">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/05/26/javascript standard/index.html" title="下一篇: 阅读《编写维护的javascript》一书简要笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes2/index.html">html head标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes1/index.html">html 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-keyboard/index.html">Atom keyboard</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 djllhs
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+  </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+</div>
+</body>
+</html>
