@@ -1,7 +1,7 @@
 ---
 title: oss+hexo 博客部署
 date: 2017-05-26 17:42:37
-tags: 
+tags:
 - service
 - hexo
 categories: service
@@ -11,7 +11,19 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
 
 1. 在hexo默认配置文件中找到permalink参数，在其后面加上index.html
 
-    permalink: :year/:month/:day/:title/index.html
+        permalink: :year/:month/:day/:title/index.html
+        // 此外，如果添加了标签云页面，那么要在主题的关于tag和category的文件中的路径里面加上index.html。
+        // tag 的添加 在/node_modules/hexo/lib/plugins/helper/tagcloud.js文件中修改，大约在227行左右，a标签中添加index.html
+        result.push(
+          '<a href="' + self.url_for(tag.path) + 'index.html" style="' + style + '">' +
+          (transform ? transform(tag.name) : tag.name) +
+          '</a>'
+        );
+        // category的设置 在/node_modules/hexo/lib/plugins/helper/list_categories.js文件中修改
+        //大约74行的位置 a标签中添加index.html
+         result += '<a class="' + className + '-list-link' + (isCurrent ? ' current' : '') + '" href="' + self.url_for(cat.path) + suffix + 'index.html">';
+
+         // 注意：行数是根据自身情况而定，只要找准a标签的位置即可。
 
 2. 随意找个文件位置，创建文件oss_config.json
 
