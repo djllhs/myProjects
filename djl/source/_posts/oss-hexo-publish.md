@@ -1,7 +1,9 @@
 ---
 title: oss+hexo 博客部署
 date: 2017-05-26 17:42:37
-tags: service
+tags: 
+- service
+- hexo
 categories: service
 ---
 oss对象存储用来搭建个人博客是我同事告诉我的，比较适合前端用，写点笔记。hexo部署到oss有一个注意的点就是oss不能使用相对路径进行访问（是用来存储的），比如访问a.com\b\并不会访问到其页面内容，需要在路径后面加上index.html.

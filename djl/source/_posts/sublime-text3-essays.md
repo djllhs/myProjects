@@ -1,7 +1,9 @@
 ---
 title: sublime text3 快捷键
 date: 2017-05-27 11:19:15
-tags: sublime text3
+tags:
+- sublime text3
+- keyboard
 categories: tools
 ---
 sublime text3 的一些常用的快捷键

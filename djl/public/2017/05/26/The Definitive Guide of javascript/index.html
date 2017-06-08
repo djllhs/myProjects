@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html">
 <meta property="og:site_name" content="You and me">
 <meta property="og:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
-<meta property="og:updated_time" content="2017-05-31T09:20:35.923Z">
+<meta property="og:updated_time" content="2017-06-06T10:31:37.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《JavaScript权威指南》笔记">
 <meta name="twitter:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
@@ -182,7 +182,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/head标签/">head标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html简介/">html简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
                     </div>
                 </section>
                 
@@ -887,9 +887,45 @@ new Point(2,3);
 </table>
 <p>注：属性访问表达式和调用表达式优先级高于表格所有运算，typeof优先级低于前者，高于后者</p>
 <h3 id="8-算数表达式"><a href="#8-算数表达式" class="headerlink" title="8.算数表达式"></a>8.算数表达式</h3><ul>
-<li>“+”运算符，可以对两个数字做加法，也可以做字符串连接操作</li>
+<li><p>“+”运算符，可以对两个数字做加法，也可以做字符串连接操作</p>
+<pre><code>1 + 2   // 3 加法
+&quot;1&quot; + &quot;2&quot;  // &quot;12&quot;,字符串连接
+&quot;1&quot; + 2  // &quot;12&quot;，数字转换为字符串后进行字符串连接
+1 + {}  // &quot;1[object Object]&quot;,对象转换为字符串后进行字符串连接
+true + true // 2,布尔值转为字符串后相加
+2 + null  // 2, null转为0，相加
+2 + undefined // NaN, undefined转为NaN，相加
+</code></pre></li>
+<li><p>一元算术运算符 （+，-，++，–），作用于一个单独的操作数</p>
+<ul>
+<li>一元加（+），将操作数转为数字（或NaN）并返回</li>
+<li>一元减（-），将操作数转为数字，改变运算结果符号，并返回</li>
+<li><p>递增（++）,</p>
+<ul>
+<li>前增量，操作数在前，返回计算前的值.先赋值后计算</li>
+<li><p>后增量，操作数在后，返回计算后的值。先计算后赋值。</p>
+<pre><code>var i = 1, j = ++i;  // i=2,j=2
+var i = 1, j = i++;  // i=2,j=1
+</code></pre></li>
 </ul>
-
+</li>
+<li><p>递减（–），同递增</p>
+</li>
+</ul>
+</li>
+<li><p>位运算符</p>
+<ul>
+<li>按位与（&amp;）,二者同为1，结果为1</li>
+<li>按位或（|），二者至少1个为1，结果为1</li>
+<li>按位异或（^），二者只有一个为1，结果为1</li>
+<li>按位非（~），操作数所有位取反</li>
+<li>左移（&lt;&lt;），将第一个操作数的所有二进制位左移，第二个操作数为移动的位数</li>
+<li>带符号右移（&gt;&gt;），将第一个操作数的所有二进制位右移，第二个操作数为移动的位数</li>
+<li>无符号右移（&gt;&gt;&gt;），同无符号右移，只是左边的最高位总是填补0</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-关系表达式"><a href="#9-关系表达式" class="headerlink" title="9.关系表达式"></a>9.关系表达式</h3>
       
     </div>
     
@@ -900,7 +936,7 @@ new Point(2,3);
         <p><span>本文标题:</span><a href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-26, 15:12:36</p>
-        <p><span>最后更新:</span>2017-05-31, 17:20:35</p>
+        <p><span>最后更新:</span>2017-06-06, 18:31:37</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/26/The Definitive Guide of javascript/index.html" title="《JavaScript权威指南》笔记">http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -936,7 +972,7 @@ new Point(2,3);
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、词法结构"><span class="toc-number">1.</span> <span class="toc-text">一、词法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符集"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注释"><span class="toc-number">1.2.</span> <span class="toc-text">2.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-直接量"><span class="toc-number">1.3.</span> <span class="toc-text">3.直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-标识符和保留字"><span class="toc-number">1.4.</span> <span class="toc-text">4.标识符和保留字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、类型、值和变量"><span class="toc-number">2.</span> <span class="toc-text">二、类型、值和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数字"><span class="toc-number">2.1.</span> <span class="toc-text">1. 数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本"><span class="toc-number">2.2.</span> <span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔值，true和false"><span class="toc-number">2.3.</span> <span class="toc-text">3.  布尔值，true和false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null和undefined"><span class="toc-number">2.4.</span> <span class="toc-text">4.  null和undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-不可变的原始值和可变的对象引用"><span class="toc-number">2.5.</span> <span class="toc-text">5. 不可变的原始值和可变的对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-类型转换"><span class="toc-number">2.6.</span> <span class="toc-text">6.类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、表达式和运算符"><span class="toc-number">3.</span> <span class="toc-text">三、表达式和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原始表达式，包含常量或直接量、关键字和变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.原始表达式，包含常量或直接量、关键字和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对象和数组的初始化表达式"><span class="toc-number">3.2.</span> <span class="toc-text">2.对象和数组的初始化表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-函数定义表达式"><span class="toc-number">3.3.</span> <span class="toc-text">3.函数定义表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-属性访问表达式"><span class="toc-number">3.4.</span> <span class="toc-text">4.属性访问表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-调用表达式"><span class="toc-number">3.5.</span> <span class="toc-text">5.调用表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-对象创建表达式"><span class="toc-number">3.6.</span> <span class="toc-text">6.对象创建表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-运算符概述"><span class="toc-number">3.7.</span> <span class="toc-text">7.运算符概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-算数表达式"><span class="toc-number">3.8.</span> <span class="toc-text">8.算数表达式</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、词法结构"><span class="toc-number">1.</span> <span class="toc-text">一、词法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符集"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注释"><span class="toc-number">1.2.</span> <span class="toc-text">2.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-直接量"><span class="toc-number">1.3.</span> <span class="toc-text">3.直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-标识符和保留字"><span class="toc-number">1.4.</span> <span class="toc-text">4.标识符和保留字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、类型、值和变量"><span class="toc-number">2.</span> <span class="toc-text">二、类型、值和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数字"><span class="toc-number">2.1.</span> <span class="toc-text">1. 数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本"><span class="toc-number">2.2.</span> <span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔值，true和false"><span class="toc-number">2.3.</span> <span class="toc-text">3.  布尔值，true和false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null和undefined"><span class="toc-number">2.4.</span> <span class="toc-text">4.  null和undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-不可变的原始值和可变的对象引用"><span class="toc-number">2.5.</span> <span class="toc-text">5. 不可变的原始值和可变的对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-类型转换"><span class="toc-number">2.6.</span> <span class="toc-text">6.类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、表达式和运算符"><span class="toc-number">3.</span> <span class="toc-text">三、表达式和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原始表达式，包含常量或直接量、关键字和变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.原始表达式，包含常量或直接量、关键字和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对象和数组的初始化表达式"><span class="toc-number">3.2.</span> <span class="toc-text">2.对象和数组的初始化表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-函数定义表达式"><span class="toc-number">3.3.</span> <span class="toc-text">3.函数定义表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-属性访问表达式"><span class="toc-number">3.4.</span> <span class="toc-text">4.属性访问表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-调用表达式"><span class="toc-number">3.5.</span> <span class="toc-text">5.调用表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-对象创建表达式"><span class="toc-number">3.6.</span> <span class="toc-text">6.对象创建表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-运算符概述"><span class="toc-number">3.7.</span> <span class="toc-text">7.运算符概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-算数表达式"><span class="toc-number">3.8.</span> <span class="toc-text">8.算数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-关系表达式"><span class="toc-number">3.9.</span> <span class="toc-text">9.关系表达式</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -1020,7 +1056,7 @@ new Point(2,3);
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-essays/index.html">Atom essays</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes2/index.html">html head标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes1/index.html">html 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-keyboard/index.html">Atom keyboard</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
 
 
 
