@@ -22,10 +22,13 @@
 <meta property="og:url" content="http://djllhs.net/2017/05/27/job-essays/index.html">
 <meta property="og:site_name" content="You and me">
 <meta property="og:description" content="工作时遇到的问题，随手记录下来。可能比较散乱">
-<meta property="og:updated_time" content="2017-07-25T01:43:03.107Z">
+<meta property="og:image" content="https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png">
+<meta property="og:image" content="https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png">
+<meta property="og:updated_time" content="2017-09-29T10:31:21.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作随笔">
 <meta name="twitter:description" content="工作时遇到的问题，随手记录下来。可能比较散乱">
+<meta name="twitter:image" content="https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -182,7 +185,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/head标签/">head标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html简介/">html简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
                     </div>
                 </section>
                 
@@ -392,7 +395,47 @@ toolbars:[
     top:50%;
     transform:translate(-50%, -50%);
 }
-</code></pre>
+</code></pre><p>9.box-shadow 效果</p>
+<pre><code>.div {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    box-shadow: 140px 0 rgba(70, 211, 58,  0.2) inset, // x/y轴的阴影是div宽/高的70%
+            0 140px rgba(70, 211, 58,  0.2) inset,
+            -140px 0 rgba(70, 211, 58,  0.2) inset,
+            0 -140px rgba(70, 211, 58,  0.2) inset;
+            -webkit-transition: box-shadow 0.75s;
+}
+
+.div:hover {
+    box-shadow:
+        8px 0 rgba(70, 211, 58, 0.5) inset,
+        0 8px rgba(70, 211, 58, 0.5) inset,
+        -8px 0 rgba(250, 238, 13,0.5) inset,
+        0 -8px rgba(250, 238, 13,0.5) inset;
+        -webkit-transition: box-shadow 0.75s;
+}
+</code></pre><p>10.表格单元格中插入图片。清除间隙</p>
+<pre><code>img{
+    outline-width: 0;
+    vertical-align: top;
+}
+
+//html代码
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;img src=&quot;https://cdn11.bookln.cn/218875_4A47FFB48FA28006198D9E329A318DEA.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;img src=&quot;https://cdn11.bookln.cn/218875_BD88C825C626094507E549ED2FD6E1E1.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><p>对比设置前后的效果<br><img src="https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png" alt="alt text"><br><img src="https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png" alt="alt text"></p>
+
       
     </div>
     
@@ -403,7 +446,7 @@ toolbars:[
         <p><span>本文标题:</span><a href="/2017/05/27/job-essays/index.html">工作随笔</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-27, 11:09:56</p>
-        <p><span>最后更新:</span>2017-07-25, 09:43:03</p>
+        <p><span>最后更新:</span>2017-09-29, 18:31:21</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/27/job-essays/index.html" title="工作随笔">http://djllhs.net/2017/05/27/job-essays/index.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/27/job-essays/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -417,12 +460,6 @@ toolbars:[
 
 
     <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/05/27/sublime-text3-essays/index.html">
-                    sublime text3 快捷键
-                </a>
-            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -509,9 +546,7 @@ toolbars:[
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/27/sublime-text3-essays/index.html" title="上一篇: sublime text3 快捷键">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -523,7 +558,7 @@ toolbars:[
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes2/index.html">html head标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes1/index.html">html 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-keyboard/index.html">Atom keyboard</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
 
 
 

@@ -346,4 +346,91 @@ null == undefined but  null !== undefined
             "z" in point; // false
     
 * 9.4 instanceof运算符
-    若左侧的对象是右侧的实例，返回true，否则返回false
+    若左侧的对象是右侧的实例，返回true，否则返回false。
+
+	注意：所有的对象都是object的实例
+### 10 逻辑表达式
+* 10.1 逻辑与（&&），连接两个表达式
+	* 两个值为真时结果为true，其他情况结果为false
+	* 当左值为true时，才会执行右边的表达式，又称短路与
+
+			x === 0 && y === 1;
+			a == b && fn();
+
+* 10.2 逻辑或（||）
+	* 两个值至少有一个为真值时，返回结果为true，否则为false
+	* 第一个操作数为true时，返回其值。否则返回第二个操作数的值（惯用设置默认值）
+
+* 10.3 逻辑非（！）
+	* 对值求反，返回结果为true或者false
+	* !!（双重否定表肯定），返回等价的布尔值
+### 11 赋值表达式（=）
+* 返回值为右操作数的值,具有较低的优先级
+* 带操作的赋值运算：+=,-=,*=,/=,%=,<<=,>>=,>>>=,&=,|=,^=
+### 12 表达式计算
+* 12.1 eval()
+	* 只有一个参数，若为字符串，则当成js代码编译。否则直接返回该参数。
+	* 使用了调用它的变量作用域环境。在顶层代码中调用，作用于全局
+
+			eval("function f() {return x+1;}");
+		
+	* eval("return; ")是无意义的
+* 12.2 全局eval()
+
+		var geval = eval; // 别名
+		var x = "global",
+			y = "global";
+
+		function f() {
+			var x = "local";
+			eval("x += 'changed';");
+			return x;
+		}
+
+		function g() {
+			var y = "local";
+			geval("y += 'changed';");
+			return y;
+		}
+		console.log(f(), x); // local changed global
+		console.log(g(), y); // local globalchanged
+
+### 13 其他运算符
+* 13.1 条件运算符（?:）
+
+		var a = 1;
+		a = !a ? a-1 : a+1;
+		// 等价
+		if(!a)  a -= 1;
+		else a += 1
+
+* 13.2 typeof运算符
+	
+| x            | typeof x   |
+|:-------------|:-----------:|
+|undefined     | "undefined"|
+| null		   | "object"   |
+| true/false   | "boolean"  |
+| 任意数字/NaN  | "number"   |
+| 任意字符串    | "string"	|
+| 任意函数      | "function" |
+| 任意内置对象，非函数  | "object"   |
+| 任意宿主对象  |由编译器各自实现的字符串|
+
+* 13.3 delete运算符
+
+	* 删除对象属性或者数组元素，设置为undefined，不是用来返回一个值的
+	* 删除属性时，该属性将不存在。
+	* 一些内置核心和客户端属性，var声明的变量，function语句定义的函数和函数参数，不能删除
+	* 在ESCMScript5严格模式中，操作数非法，删除不可配置的属性，则抛出异常。
+
+* 14.4 void运算符
+	* 操作数为任意类型，忽略计算结果并返回undefined
+	* 在操作数具有副作用的时候使用更好
+* 14.5 逗号运算符（，）
+	* 二元运算符，操作数为任意类型
+
+			// 第二个逗号是逗号运算符
+			for(var i=0,j=10; i<j; i++,j-->)
+				console.log(i+j);
+## 四、语句

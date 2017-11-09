@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html">
 <meta property="og:site_name" content="You and me">
 <meta property="og:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
-<meta property="og:updated_time" content="2017-08-21T10:11:28.293Z">
+<meta property="og:updated_time" content="2017-10-09T02:20:04.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《JavaScript权威指南》笔记">
 <meta name="twitter:description" content="阅读《javascript权威指南》一书做的简要笔记，js基础非常重要，在学习新技术的同时也不忘夯实基础。该书是javascript程序员的必备参考……内容组织得很好，而且非常详细，值得阅读">
@@ -182,7 +182,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/head标签/">head标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html简介/">html简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keyboard/">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text3/">sublime text3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/questions/">questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a></li></ul>
                     </div>
                 </section>
                 
@@ -970,7 +970,138 @@ var i = 1, j = i++;  // i=2,j=1
 &quot;x&quot; in point; // true
 &quot;z&quot; in point; // false
 </code></pre></li>
-<li><p>9.4 instanceof运算符<br>  若左侧的对象是右侧的实例，返回true，否则返回false</p>
+<li><p>9.4 instanceof运算符<br>  若左侧的对象是右侧的实例，返回true，否则返回false。</p>
+<p>  注意：所有的对象都是object的实例</p>
+<h3 id="10-逻辑表达式"><a href="#10-逻辑表达式" class="headerlink" title="10 逻辑表达式"></a>10 逻辑表达式</h3></li>
+<li><p>10.1 逻辑与（&amp;&amp;），连接两个表达式</p>
+<ul>
+<li>两个值为真时结果为true，其他情况结果为false</li>
+<li><p>当左值为true时，才会执行右边的表达式，又称短路与</p>
+<pre><code>x === 0 &amp;&amp; y === 1;
+a == b &amp;&amp; fn();
+</code></pre></li>
+</ul>
+</li>
+<li><p>10.2 逻辑或（||）</p>
+<ul>
+<li>两个值至少有一个为真值时，返回结果为true，否则为false</li>
+<li>第一个操作数为true时，返回其值。否则返回第二个操作数的值（惯用设置默认值）</li>
+</ul>
+</li>
+<li><p>10.3 逻辑非（！）</p>
+<ul>
+<li>对值求反，返回结果为true或者false</li>
+<li>!!（双重否定表肯定），返回等价的布尔值<h3 id="11-赋值表达式（-）"><a href="#11-赋值表达式（-）" class="headerlink" title="11 赋值表达式（=）"></a>11 赋值表达式（=）</h3></li>
+</ul>
+</li>
+<li>返回值为右操作数的值,具有较低的优先级</li>
+<li>带操作的赋值运算：+=,-=,*=,/=,%=,&lt;&lt;=,&gt;&gt;=,&gt;&gt;&gt;=,&amp;=,|=,^=<h3 id="12-表达式计算"><a href="#12-表达式计算" class="headerlink" title="12 表达式计算"></a>12 表达式计算</h3></li>
+<li><p>12.1 eval()</p>
+<ul>
+<li>只有一个参数，若为字符串，则当成js代码编译。否则直接返回该参数。</li>
+<li><p>使用了调用它的变量作用域环境。在顶层代码中调用，作用于全局</p>
+<pre><code>eval(&quot;function f() {return x+1;}&quot;);
+</code></pre></li>
+<li><p>eval(“return; “)是无意义的</p>
+</li>
+</ul>
+</li>
+<li><p>12.2 全局eval()</p>
+<pre><code>var geval = eval; // 别名
+var x = &quot;global&quot;,
+    y = &quot;global&quot;;
+
+function f() {
+    var x = &quot;local&quot;;
+    eval(&quot;x += &apos;changed&apos;;&quot;);
+    return x;
+}
+
+function g() {
+    var y = &quot;local&quot;;
+    geval(&quot;y += &apos;changed&apos;;&quot;);
+    return y;
+}
+console.log(f(), x); // local changed global
+console.log(g(), y); // local globalchanged
+</code></pre></li>
+</ul>
+<h3 id="13-其他运算符"><a href="#13-其他运算符" class="headerlink" title="13 其他运算符"></a>13 其他运算符</h3><ul>
+<li><p>13.1 条件运算符（?:）</p>
+<pre><code>var a = 1;
+a = !a ? a-1 : a+1;
+// 等价
+if(!a)  a -= 1;
+else a += 1
+</code></pre></li>
+<li><p>13.2 typeof运算符</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">x</th>
+<th style="text-align:center">typeof x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">undefined</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td style="text-align:left">null</td>
+<td style="text-align:center">“object”</td>
+</tr>
+<tr>
+<td style="text-align:left">true/false</td>
+<td style="text-align:center">“boolean”</td>
+</tr>
+<tr>
+<td style="text-align:left">任意数字/NaN</td>
+<td style="text-align:center">“number”</td>
+</tr>
+<tr>
+<td style="text-align:left">任意字符串</td>
+<td style="text-align:center">“string”</td>
+</tr>
+<tr>
+<td style="text-align:left">任意函数</td>
+<td style="text-align:center">“function”</td>
+</tr>
+<tr>
+<td style="text-align:left">任意内置对象，非函数</td>
+<td style="text-align:center">“object”</td>
+</tr>
+<tr>
+<td style="text-align:left">任意宿主对象</td>
+<td style="text-align:center">由编译器各自实现的字符串</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>13.3 delete运算符</p>
+<ul>
+<li>删除对象属性或者数组元素，设置为undefined，不是用来返回一个值的</li>
+<li>删除属性时，该属性将不存在。</li>
+<li>一些内置核心和客户端属性，var声明的变量，function语句定义的函数和函数参数，不能删除</li>
+<li>在ESCMScript5严格模式中，操作数非法，删除不可配置的属性，则抛出异常。</li>
+</ul>
+</li>
+<li><p>14.4 void运算符</p>
+<ul>
+<li>操作数为任意类型，忽略计算结果并返回undefined</li>
+<li>在操作数具有副作用的时候使用更好</li>
+</ul>
+</li>
+<li><p>14.5 逗号运算符（，）</p>
+<ul>
+<li><p>二元运算符，操作数为任意类型</p>
+<pre><code>// 第二个逗号是逗号运算符
+for(var i=0,j=10; i&lt;j; i++,j--&gt;)
+    console.log(i+j);
+</code></pre><h2 id="四、语句"><a href="#四、语句" class="headerlink" title="四、语句"></a>四、语句</h2></li>
+</ul>
 </li>
 </ul>
 
@@ -984,7 +1115,7 @@ var i = 1, j = i++;  // i=2,j=1
         <p><span>本文标题:</span><a href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-26, 15:12:36</p>
-        <p><span>最后更新:</span>2017-08-21, 18:11:28</p>
+        <p><span>最后更新:</span>2017-10-09, 10:20:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/26/The Definitive Guide of javascript/index.html" title="《JavaScript权威指南》笔记">http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/26/The Definitive Guide of javascript/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -1020,7 +1151,7 @@ var i = 1, j = i++;  // i=2,j=1
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、词法结构"><span class="toc-number">1.</span> <span class="toc-text">一、词法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符集"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注释"><span class="toc-number">1.2.</span> <span class="toc-text">2.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-直接量"><span class="toc-number">1.3.</span> <span class="toc-text">3.直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-标识符和保留字"><span class="toc-number">1.4.</span> <span class="toc-text">4.标识符和保留字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、类型、值和变量"><span class="toc-number">2.</span> <span class="toc-text">二、类型、值和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数字"><span class="toc-number">2.1.</span> <span class="toc-text">1. 数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本"><span class="toc-number">2.2.</span> <span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔值，true和false"><span class="toc-number">2.3.</span> <span class="toc-text">3.  布尔值，true和false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null和undefined"><span class="toc-number">2.4.</span> <span class="toc-text">4.  null和undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-不可变的原始值和可变的对象引用"><span class="toc-number">2.5.</span> <span class="toc-text">5. 不可变的原始值和可变的对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-类型转换"><span class="toc-number">2.6.</span> <span class="toc-text">6.类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、表达式和运算符"><span class="toc-number">3.</span> <span class="toc-text">三、表达式和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原始表达式，包含常量或直接量、关键字和变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.原始表达式，包含常量或直接量、关键字和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对象和数组的初始化表达式"><span class="toc-number">3.2.</span> <span class="toc-text">2.对象和数组的初始化表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-函数定义表达式"><span class="toc-number">3.3.</span> <span class="toc-text">3.函数定义表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-属性访问表达式"><span class="toc-number">3.4.</span> <span class="toc-text">4.属性访问表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-调用表达式"><span class="toc-number">3.5.</span> <span class="toc-text">5.调用表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-对象创建表达式"><span class="toc-number">3.6.</span> <span class="toc-text">6.对象创建表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-运算符概述"><span class="toc-number">3.7.</span> <span class="toc-text">7.运算符概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-算数表达式"><span class="toc-number">3.8.</span> <span class="toc-text">8.算数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-关系表达式"><span class="toc-number">3.9.</span> <span class="toc-text">9.关系表达式</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、词法结构"><span class="toc-number">1.</span> <span class="toc-text">一、词法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符集"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注释"><span class="toc-number">1.2.</span> <span class="toc-text">2.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-直接量"><span class="toc-number">1.3.</span> <span class="toc-text">3.直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-标识符和保留字"><span class="toc-number">1.4.</span> <span class="toc-text">4.标识符和保留字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、类型、值和变量"><span class="toc-number">2.</span> <span class="toc-text">二、类型、值和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数字"><span class="toc-number">2.1.</span> <span class="toc-text">1. 数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-文本"><span class="toc-number">2.2.</span> <span class="toc-text">2. 文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-布尔值，true和false"><span class="toc-number">2.3.</span> <span class="toc-text">3.  布尔值，true和false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null和undefined"><span class="toc-number">2.4.</span> <span class="toc-text">4.  null和undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-不可变的原始值和可变的对象引用"><span class="toc-number">2.5.</span> <span class="toc-text">5. 不可变的原始值和可变的对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-类型转换"><span class="toc-number">2.6.</span> <span class="toc-text">6.类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、表达式和运算符"><span class="toc-number">3.</span> <span class="toc-text">三、表达式和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原始表达式，包含常量或直接量、关键字和变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.原始表达式，包含常量或直接量、关键字和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-对象和数组的初始化表达式"><span class="toc-number">3.2.</span> <span class="toc-text">2.对象和数组的初始化表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-函数定义表达式"><span class="toc-number">3.3.</span> <span class="toc-text">3.函数定义表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-属性访问表达式"><span class="toc-number">3.4.</span> <span class="toc-text">4.属性访问表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-调用表达式"><span class="toc-number">3.5.</span> <span class="toc-text">5.调用表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-对象创建表达式"><span class="toc-number">3.6.</span> <span class="toc-text">6.对象创建表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-运算符概述"><span class="toc-number">3.7.</span> <span class="toc-text">7.运算符概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-算数表达式"><span class="toc-number">3.8.</span> <span class="toc-text">8.算数表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-关系表达式"><span class="toc-number">3.9.</span> <span class="toc-text">9.关系表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-逻辑表达式"><span class="toc-number">3.10.</span> <span class="toc-text">10 逻辑表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-赋值表达式（-）"><span class="toc-number">3.11.</span> <span class="toc-text">11 赋值表达式（=）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-表达式计算"><span class="toc-number">3.12.</span> <span class="toc-text">12 表达式计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-其他运算符"><span class="toc-number">3.13.</span> <span class="toc-text">13 其他运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、语句"><span class="toc-number">4.</span> <span class="toc-text">四、语句</span></a></li></ol>
         
     </div>
     <style>
@@ -1104,7 +1235,7 @@ var i = 1, j = i++;  // i=2,j=1
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes2/index.html">html head标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/html-notes1/index.html">html 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/Atom-keyboard/index.html">Atom keyboard</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/sublime-text3-essays/index.html">sublime text3 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/job-essays/index.html">工作随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/oss-hexo-publish/index.html">oss+hexo 博客部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/The Definitive Guide of javascript/index.html">《JavaScript权威指南》笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/javascript standard/index.html">阅读《编写维护的javascript》一书简要笔记</a></li></ul>
 
 
 

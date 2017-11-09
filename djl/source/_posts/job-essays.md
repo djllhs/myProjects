@@ -103,3 +103,50 @@ categories: work
         top:50%;
         transform:translate(-50%, -50%);
     }
+
+9.box-shadow 效果
+
+    .div {
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        box-shadow: 140px 0 rgba(70, 211, 58,  0.2) inset, // x/y轴的阴影是div宽/高的70%
+                0 140px rgba(70, 211, 58,  0.2) inset,
+                -140px 0 rgba(70, 211, 58,  0.2) inset,
+                0 -140px rgba(70, 211, 58,  0.2) inset;
+                -webkit-transition: box-shadow 0.75s;
+    }
+
+    .div:hover {
+        box-shadow:
+            8px 0 rgba(70, 211, 58, 0.5) inset,
+            0 8px rgba(70, 211, 58, 0.5) inset,
+            -8px 0 rgba(250, 238, 13,0.5) inset,
+            0 -8px rgba(250, 238, 13,0.5) inset;
+            -webkit-transition: box-shadow 0.75s;
+    }
+
+10.表格单元格中插入图片。清除间隙
+
+    img{
+        outline-width: 0;
+        vertical-align: top;
+    }
+
+    //html代码
+    <table>
+        <tr>
+            <td>
+                <img src="https://cdn11.bookln.cn/218875_4A47FFB48FA28006198D9E329A318DEA.jpg" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="https://cdn11.bookln.cn/218875_BD88C825C626094507E549ED2FD6E1E1.jpg" alt="">
+            </td>
+        </tr>
+    </table>
+
+对比设置前后的效果
+![alt text](https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png)
+![alt text](https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png)
