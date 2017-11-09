@@ -1,6 +1,7 @@
 /**
  * Created by 代佳玲 on 2017/2/18.
  */
+
 import $ from 'jquery';
 //import {action}   from "./interface";
 export  function ajax (url,{
@@ -96,15 +97,31 @@ export function change_title(title){
 
 //事件上报
 export function resStatistics(url,action,bizId,uid){
-    $.ajax({
-        url:url,
-        data: {
-            'userId':uid || null,
-            'bizId':bizId || null,
-            'action':action
-        },
-        type: 'post',
-        dataType: 'json'});
+    // $.ajax({
+    //     url:url,
+    //     data: {
+    //         'userId':uid || null,
+    //         'bizId':bizId || null,
+    //         'action':action
+    //     },
+    //     type: 'post',
+    //     dataType: 'json'});
+
+
+    // var _mtac = {"performanceMonitor":1,"senseQuery":1};
+    // (function() {
+    //   var mta = document.createElement("script");
+    //   mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+    //   mta.setAttribute("name", "MTAH5");
+    //   mta.setAttribute("sid", "500536105");
+    //   mta.setAttribute("cid", "500536110");
+    //   var s = document.getElementsByTagName("script")[0];
+    //   s.parentNode.insertBefore(mta, s);
+    //   console.log("--------33----",mta);
+    // })();
+    
+    window.MtaH5.clickStat(action);
+    // window.MtaH5.clickStat(action,{'bizid':bizId});
 }
 
 export function wxSetTitle(title) {
@@ -113,7 +130,7 @@ export function wxSetTitle(title) {
     if (/iphone|ipad|ipod/.test(mobile)) {
         var iframe = document.createElement('iframe');
         iframe.style.visibility = 'hidden';
-        iframe.setAttribute('src', 'loading.png');
+        // iframe.setAttribute('src', 'loading.png');
         var iframeCallback = function() {
             setTimeout(function() {
                 iframe.removeEventListener('load', iframeCallback);
@@ -123,4 +140,37 @@ export function wxSetTitle(title) {
         iframe.addEventListener('load', iframeCallback);
         document.body.appendChild(iframe);
     }
+}
+/**
+ * 格式化日期
+ * @param date
+ */
+export function  format_date(date) {
+
+    let newDate = new Date(date),
+        Y = newDate.getFullYear(),
+        M = newDate.getMonth()+1,
+        D = newDate.getDate();
+    M = M > 9 ? M : "0" + M;
+    D = D > 9 ? D : "0" + D;
+    // console.log(date,newDate,Y, M, D);
+
+    return Y + "." + M + "." + D;
+ }
+
+/**
+ * 格式化价格
+ * @param price
+ * @returns {*}
+ */
+export function format_price(price) {
+     return !!price ? (price/100).toFixed(2) : '0.00';
+ }
+
+ export function isEmptyObj( obj ) {
+    var name;
+    for ( name in obj ) {
+        return false;
+    }
+    return true;
 }

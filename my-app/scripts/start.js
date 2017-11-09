@@ -253,7 +253,9 @@ function runDevServer(host, port, protocol) {
     // Reportedly, this avoids CPU overload on some systems.
     // https://github.com/facebookincubator/create-react-app/issues/293
     watchOptions: {
-      ignored: /node_modules/
+      ignored: /node_modules/,
+      aggregateTimeout: 300, // 当热更新不太灵光时增加这两个选项
+      poll: 1000
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",

@@ -14,7 +14,10 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+      
+    <script src="http://pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500536105" cid="500536110"></script>
+    <!--<script src="/qrcode/js/common/flexible.0.3.4.js"></script>-->
+    <!--<script src="./flexible.0.3.4.js"></script>-->
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
@@ -29,12 +32,17 @@
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+     
+        window.MtaH5 = MtaH5;
+      // console.log("------", MtaH5);  
     </script>
   </head>
   <body>
     <div id="root"></div>
     <input type="hidden" id="ioss" value="$!download.iosDir"/>
     <input type="hidden" id="androids" value="$!download.androidDir"/>
+    <input id="shop"  type="hidden" value="$!shopUrl"/>
+    <input id="message"  type="hidden" value="$!msgUrl"/>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

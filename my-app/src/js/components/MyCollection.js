@@ -14,7 +14,6 @@ class MyCollection extends Component {
         this.state = {
             currentIndex: 0,
             res:[],
-            resCourse:[],
             favType:3,
             display:'block',
             appUrl: null,
@@ -82,7 +81,6 @@ class MyCollection extends Component {
     }
 
     render(){
-        const {resCourse} = this.state;
         return(
             <div className="per_myCollection">
                 <div className="per_myC_title_wrap">

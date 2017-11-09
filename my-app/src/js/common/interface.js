@@ -6,7 +6,7 @@ const DEVELOPMENT = '192.168.0.35';
 //const DEVELOPMENT = '192.168.4.12:8080';
 const PRODUCTION  = window.location.host;
 const isDP        = !!~PRODUCTION.indexOf('localhost') || !!~PRODUCTION.indexOf('192.168.0.25');
-const HOST        = 'http://' + (isDP ? DEVELOPMENT : PRODUCTION);
+const HOST        =  window.location.protocol + '//' + (isDP ? DEVELOPMENT : PRODUCTION);
 
 const action = {
 
@@ -21,7 +21,12 @@ const action = {
     eventUp: HOST + '/statisticsService/eventUp.do',//事件上报
     error: HOST + '/qr/error.htm',//错误页面
     course: HOST + '/personalService/lesson.do', // 我的课程
+    coupon: HOST + "/couponService/list.do", // 优惠券
+    confirm_receive: HOST +"/personalService/confirmOrder.do" , // 确认收货
+    showBanner: HOST + "/personalService/banner.do", // 显示banner
+    viewStudyPlan: HOST + "/studyplan/intro.htm?id=", // 学习计划'
 
+    noticeTips: HOST + "/personalService/noticeTips.do", //消息红点提示
 };
 
 export {action as default} ;

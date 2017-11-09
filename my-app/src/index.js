@@ -8,6 +8,7 @@ import BookShelf from './js/components/BookShelf';
 import MyCollection from './js/components/MyCollection';
 import Purchased from './js/components/Purchased';
 import Course from './js/components/Course';
+import Coupon from './js/components/Coupon';
 
 render(
   <Router history={hashHistory}>
@@ -17,6 +18,7 @@ render(
           <Route path="/myCollection" component={MyCollection}/>
           <Route path="/purchased" component={Purchased} />
           <Route path="/course" component={Course} />
+          <Route path="/coupon" component={Coupon} />
       </Route>
   </Router>,
   document.getElementById('root')

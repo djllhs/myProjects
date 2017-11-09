@@ -10,12 +10,11 @@ class Null extends Component {
         const {style, text} = this.props;
         return (
             <div className="_null" style={style}>
-                <img src={require('../../img/ic_cache@3x.png')} alt=""/>
+                <img src={require("../../img/ic_cache@3x.png")} alt=""/>
                 <div className="_null_text">{text}</div>
             </div>
         )
     }
-
 }
 
 

@@ -7,7 +7,7 @@ $color: #3ca6fe;
 }
 
 html {
-  background: #f2f5f7;
+  background: rgb(242, 245, 247)!important;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 
 a {
   text-underline: none;
-  color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
 }
 %one_line {
   overflow: hidden;
@@ -26,7 +26,14 @@ a {
   white-space: nowrap;
   width: 100%;
 }
-
+%new_one_line{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
 /*----text show two line only -------*/
 %two_line {
   overflow: hidden;
@@ -52,6 +59,45 @@ a {
   flex-direction: column;
   justify-content: space-between;
   //position: relative;
+  .bottom_navigator{
+    width: 100%;
+    height: px-convert-rem(98);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: px-convert-rem(1) solid #B3B3B3;
+
+    .tab{
+      font-size: px-convert-rem(18);
+      color: #A1A1A1;
+      text-align: center;
+      position: relative;
+      >img{
+        width: px-convert-rem(44);
+        // height: px-convert-rem(44);
+      }
+      .redSpot{
+        position: absolute;
+        width: px-convert-rem(12);
+        height: px-convert-rem(12);
+        border-radius: px-convert-rem(12);
+        background-color: red;
+        right: px-convert-rem(-3);
+        top: px-convert-rem(-3);
+
+      }
+    }
+    .tab_active{
+      color: #48ACFF;;
+    }
+  }
+}
+//存放的是底部导航的路径
+#shop,#message{
+  display: none;;
 }
 
 .loading {
@@ -73,6 +119,7 @@ a {
       padding: px-convert-rem(27) px-convert-rem(32);
       margin-top: px-convert-rem(10);
       display: block;
+      text-decoration: none;
 
       .per_icon_wrap {
         width: px-convert-rem(44);
@@ -108,11 +155,13 @@ a {
       background: #f4f4f4;
     }
   }
+
 }
 
 
 /*-----------------footer--------------*/
 .tooltip_bar {
+  opacity: 0;
   width: 100%;
   //position: absolute;
   //top: 90%;
@@ -122,7 +171,7 @@ a {
   //padding: px-convert-rem(17) px-convert-rem(32);
   //opacity: 0.85 !important;
   //filter: alpha(opacity=85) !important;
-
+  
   @extend %flex_layout;
   align-items: center;
   justify-content: space-between;
@@ -215,14 +264,14 @@ a {
 }
 
 //书架、我的收藏、已购买的最外层div包裹
-.per_bookShelf, .per_myCollection, .per_purchased {
+.per_bookShelf, .per_myCollection{
 
-  padding: px-convert-rem(24) px-convert-rem(22) 0 px-convert-rem(0);
+  padding: px-convert-rem(24) px-convert-rem(22) px-convert-rem(24) px-convert-rem(0);
 
 }
 
 // 包裹个体div
-.per_boS_book_item_wrap, .per_purchased_teletext_item_wrap, .per_purchased_spot_read_item_wrap {
+.per_boS_book_item_wrap, .per_purchased_spot_read_item_wrap {
   width: px-convert-rem(170);
   height: 100%;
   font-size: px-convert-rem(24);
@@ -241,7 +290,6 @@ a {
     }
   }
 
-
   // 书名
   .per_boS_book_item_name, .per_purchased_book_item_name {
     width: 100%;
@@ -251,12 +299,11 @@ a {
 }
 
 //-----------myCollection css -----------
-.per_myCollection, .per_purchased {
-  padding: px-convert-rem(16) 0 0 0;
+.per_myCollection {
+  padding: px-convert-rem(24) 0;
 }
-
 // 包裹标题tabs div
-.per_myC_title_wrap,.per_purchased_title_wrap {
+.per_myC_title_wrap{
 
   width: px-convert-rem(686);
   height: px-convert-rem(60);
@@ -274,6 +321,13 @@ a {
   .per_tab_title{
     width: px-convert-rem(228);
     height: 100%;
+
+    &:first-child{
+      border-right: px-convert-rem(2) solid $color;
+    }
+    &:nth-child(2){
+      border-right: px-convert-rem(2) solid $color;
+    }
   }
 
   //标题选中
@@ -428,7 +482,6 @@ a {
     width: 95%;
   }
 
-
 }
 
 .duration{
@@ -462,77 +515,274 @@ a {
 }
 
 /*----------purchased css ----------*/
-
-// 已购买的 三个标题
-.per_tab_title_spot {
-  border-left: px-convert-rem(2) solid $color;
-  border-right: px-convert-rem(2) solid $color;
+.per_purchased .per_purchased_content_wrap{
+  margin-top: 0;
 }
-// 包裹内容div
-.per_purchased_content_wrap {
+.per_purchased_title_wrap {
+  // width: 100%;
+  //width: auto;
+  height: px-convert-rem(88);
+  background-color: #fff;
+  border-bottom: px-convert-rem(2) solid #ededed;
+  display: flex;
+  font-size: px-convert-rem(32);
+  color: #222;
+  //align-items: center;
+  // justify-content: space-around;
+  overflow-x: scroll;
 
-  width: 100%;
-  margin-top: px-convert-rem(16);
 
-  // 包裹个体div
-  .per_purchased_video_item,.per_purchased_spot_read_item,
-  .per_purchased_teletext_item{
-
-    width: px-convert-rem(168);
-    height:px-convert-rem(240);
-    //background: mediumspringgreen;
+  .per_purchased_tab_title {
+    width: px-convert-rem(250);
+    height: 100%;
+    line-height: px-convert-rem(88);
+    //margin-right: px-convert-rem(24);
+    text-align: center;
+    border-bottom: px-convert-rem(4) solid rgba(255,255,255,0);
+    box-sizing: border-box;
   }
-}
-
-// 课程
-.per_course_container {
-  @extend %flex_layout;
-  padding: 0 0 0  px-convert-rem(28);
-  @media (min-width: 760px) {
-    padding: 0 0 0  px-convert-rem(15);
+  .per_purchased_tab_title_active {
+    color: $color;
+    border-color: $color;
   }
-
-
-  .per_course_item_wrap {
-    width:  px-convert-rem(340);
-    height: px-convert-rem(262);
-    //outline: 1px solid #ff98e4;
-    margin: 0  px-convert-rem(20) px-convert-rem(28) px-convert-rem(0);
-    @media (min-width: 760px) {
-      margin: 0  px-convert-rem(10) px-convert-rem(28) px-convert-rem(0);
+  //选中tab下划线
+  .per_purchased_tab_title_line {
+    width: px-convert-rem(200);
+    height: px-convert-rem(4);
+    background-color: $color;
+    margin-top: px-convert-rem(-2);
+    //  隐藏下划线
+    .per_purchased_tab_title_line_hidden {
+      display: none;
     }
+  }
+}
 
-    color: #222;
+//图书资源 点读书 课程 纸质书
+.per_purchased_teletext_container, .per_purchased_spot_read_container,.per_course_container{
+  display: flex;
+  flex-direction: column;
+  //图书资源个体
+  .per_purchased_item_wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin-bottom: px-convert-rem(20);
+    //padding: px-convert-rem(30)  px-convert-rem(30) 0;
+    //购买状态
+    .per_purchased_item_status{
+      font-size: px-convert-rem(28);
+      color: #222222;
+      display: flex;
+      justify-content: flex-end;
+      padding: px-convert-rem(30);
+    }
+    //纸质书的状态
+    .per_purchased_paperbook_item_status {
+      color: #01C293;
+    }
+    //书籍封面 和描述
+    .per_purchased_item{
+      display: flex;
+      padding: 0 px-convert-rem(30);
 
-    .per_course_item {
-      width: 100%;
-      height:  px-convert-rem(190);
-      //outline:  1px solid $color;
-      > img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .per_purchased_item_thumbnails{
+        width: px-convert-rem(176);
+        height: px-convert-rem(256);
+        margin-right: px-convert-rem(30);
+        flex-shrink: 0;
+      }
+      //课程封面
+      .per_purchased_course_item_thumbnails {
+        width: px-convert-rem(340);
+        height: px-convert-rem(190);
+      }
+      //学习计划
+      .per_purchased_item_studyplan_thumbnails{
+        width: px-convert-rem(124);
+        height: px-convert-rem(194);
+      }
+      //书籍描述
+      .per_purchased_item_detail{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+
+        //书籍名称
+        .per_purchased_item_name{
+          font-size: px-convert-rem(32);
+          color: #222222;
+          @extend %two_line;
+        }
+        //出版社
+        .per_purchased_item_publisher{
+          font-size: px-convert-rem(24);
+          color: #666666;
+          @extend %new_one_line;
+        }
+        .per_purchased_item_price{
+          font-size: px-convert-rem(24);
+          color: #666666;
+          align-self: flex-end;
+        }
       }
     }
-    .per_course_item_name {
-      margin-top: px-convert-rem(16);
-      @extend %two_line;
+    //实付款
+    .per_purchased_item_pay{
+      font-size: px-convert-rem(30);
+      color: #222222;
+      align-self: flex-end;
+      padding: px-convert-rem(30);
     }
+
+  //  物流
+    .per_purchased_item_logistics{
+      display: flex;
+      justify-content: flex-end;
+      padding: px-convert-rem(20) px-convert-rem(30);
+      border-top: px-convert-rem(1) solid #ededed;
+      .per_purchased_item_logistics_btn{
+        width: px-convert-rem(172);
+        height: px-convert-rem(60);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: px-convert-rem(2) solid #ddd;
+        border-radius: px-convert-rem(70);
+        font-size: px-convert-rem(28);
+        color: #666;
+      }
+      .per_purchased_item_confirm_btn {
+        margin-left: px-convert-rem(30);
+        border-color: $color;
+        color: $color;
+      }
+
+
+    }
+    .per_purchased_item_logistics_hidden{
+      display: none;
+    }
+
+    //弹出框
+    .modal_wrap{
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 1000;
+      background-color: rgba(55,55,55,.2);
+
+      .modal_confirm_wrap {
+        width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: px-convert-rem(30) px-convert-rem(30);
+        background-color: #fff;
+        //margin: px-convert-rem(50);
+        border-radius: px-convert-rem(4);
+        display: flex;
+        flex-direction: column;
+        flex: 0;
+
+        .modal_confirm_tips {
+          font-size: px-convert-rem(28);
+          color: #666;
+          margin: px-convert-rem(20);
+        }
+
+        .modal_btns {
+          display: flex;
+          justify-content: flex-end;
+          margin-top:  px-convert-rem(30);
+          position: relative;
+          .modal_btn {
+            width: px-convert-rem(150);
+            padding: px-convert-rem(15) px-convert-rem(10) ;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            color: #666;
+            border: px-convert-rem(2) solid #ddd;
+            border-radius: px-convert-rem(6);
+
+            .spin_dot {
+              position: relative;
+              right: px-convert-rem(10);
+              display: inline-block;
+              width: px-convert-rem(20);
+              height: px-convert-rem(20);
+
+              transform: rotate(45deg);
+              animation: spinRotate 1.2s infinite  linear;
+              i {
+                width: px-convert-rem(9);
+                height: px-convert-rem(9);
+                border-radius: 100%;
+                background-color: #fff;
+                display: block;
+                position: absolute;
+                //opacity: .3;
+
+                &:first-child {
+                  left: 0;
+                  top: 0;
+                }
+                &:nth-child(2) {
+                  right: 0;
+                  top: 0;
+                }
+                &:nth-child(3) {
+                  right: 0;
+                  bottom: 0;
+                }
+                &:last-child {
+                  left: 0;
+                  bottom:0;
+                }
+              }
+            }
+          }
+
+          .modal_confirm_btn {
+            color: #fff;
+            border-color: $color;
+            background-color: $color;
+            margin-left: px-convert-rem(20);
+
+          }
+          .modal_confirm_btn_mask {
+            width: px-convert-rem(150);
+            height: inherit;
+            position: absolute;
+            right:0;
+            top:0;
+            z-index: 1001;
+            background-color: rgba(34, 34, 34, 0.09);
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@-webkit-keyframes spinRotate {
+  100% {
+    transform: rotate(405deg);
   }
 }
 
 // 子组件 容器div
-.per_purchased_video_container, .per_purchased_spot_read_container,
-.per_purchased_teletext_container{
-
+.per_purchased_video_container
+{
   @extend %flex_layout;
-
-  .per_purchased_video_item_wrap,.per_purchased_spot_read_item_wrap,
-  .per_purchased_teletext_item_wrap{
-    //margin-top: px-convert-rem(32);
-  }
 }
-
 // 数据为空时
 ._null{
   text-align: center;
@@ -543,7 +793,6 @@ a {
     width: px-convert-rem(360);
     height: px-convert-rem(320);
   }
-
   ._null_text{
     font-size: px-convert-rem(32);
     color: #666666;
@@ -559,12 +808,12 @@ a {
   display: block;
 }
 
+
 /*------动画-------*/
 .transitionWrapper-enter {
   opacity: 0.01;
   transition: opacity .3s ease-in;
 }
-
 .transitionWrapper-enter.transitionWrapper-enter-active {
   opacity: 1;
 }
@@ -627,14 +876,137 @@ a {
       line-height: px-convert-rem(24);
       display: inline-block;
       text-align: center;
-      //>img{
-      //  width: px-convert-rem(12);
-      //  height: px-convert-rem(12);
-      //  margin: 0 px-convert-rem(8);
-      //}
-
     }
   }
+  // ------------优惠券-----------
+  .per_purchased_content_wrap {
+    margin-top: px-convert-rem(24);
+  }
+  .per_coupon_list {
+    width: 100%;
+    height: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .per_unuserd_coupon_wrap {
+    display: flex;
+    width: px-convert-rem(702);
+    height: px-convert-rem(230);
+    background-color: #fff;
+    margin-bottom: px-convert-rem(24);
+
+    .per_unuserd_coupon_left {
+      width: px-convert-rem(210);
+      height: inherit;
+      background-color: #fe9b3c;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      .per_unuserd_coupon_left_semicircle { // 半圆
+        width: px-convert-rem(23);
+        height: px-convert-rem(45);
+        //border-radius: px-convert-rem(30);
+        //background-color: #fff;
+        //transform: translateX(-50%);
+        margin-left: px-convert-rem(-1);
+      }
+      .per_unuserd_coupon_left_amount_wrap {
+        width: px-convert-rem(162);
+        height: inherit;
+        font-size: px-convert-rem(24);
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: px-convert-rem(24);
+        //padding: px-convert-rem(60) 0;
+      }
+      .per_unuserd_coupon_left_amount{ //金额
+        margin-top: px-convert-rem(60);
+        font-size: px-convert-rem(30);
+        >span{
+          font-size: px-convert-rem(60);
+        }
+      }
+      .per_unuserd_coupon_left_amount_use { //满多少可用
+        margin-bottom: px-convert-rem(60);
+      }
+    }
+
+    .per_unuserd_coupon_right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: px-convert-rem(32) px-convert-rem(24) px-convert-rem(32) px-convert-rem(20);
+      justify-content: space-between;
+      flex: 1;
+
+      .per_unuserd_coupon_right_top {
+        display: flex;
+        font-size: px-convert-rem(30);
+        justify-content: space-between;
+        .per_unuserd_coupon_right_title {
+          color: #222;
+        }
+        .per_unuserd_coupon_right_title_right {
+          display: flex;
+          align-items: center;
+        }
+        .per_unuserd_coupon_right_use{
+          font-size: px-convert-rem(26);
+          color: #FA3B3B;
+          margin-right: px-convert-rem(12);
+        }
+        .per_unuserd_coupon_right_arrow {
+          width: px-convert-rem(30);
+          height: px-convert-rem(30);
+        }
+      }
+
+      .per_unuserd_coupon_right_middle{
+        //margin-top: px-convert-rem(24);
+      }
+
+      .per_unuserd_coupon_right_middle,
+      .per_unuserd_coupon_right_bottom {
+        color: #999;
+      }
+      .per_unuserd_coupon_right_bottom {
+        @extend %two_line;
+        line-height: px-convert-rem(36);
+      }
+      .per_unuserd_coupon_right_semicircle {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    //已失效
+    .per_ineffective_coupon_left{
+      background-color: #DADADA;
+    }
+    .per_ineffective_coupon_right_title {
+      color: #999;
+    }
+    //已过期
+    .per_ineffective_coupon_img {
+      width: px-convert-rem(158);
+      height: px-convert-rem(100);
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      top: px-convert-rem(24);
+    }
+  }
+
+
+
+
+
 
 
 

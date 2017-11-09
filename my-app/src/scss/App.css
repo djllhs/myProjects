@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  background: #f2f5f7; }
+  background: #f2f5f7 !important; }
 
 body {
   margin: 0;
@@ -9,7 +9,7 @@ body {
 
 a {
   text-underline: none;
-  color: rgba(255, 255, 255, 0); }
+  color: white; }
 
 .audio-list .info-top, .audio-list .info-center, .audio-list .bottom_content {
   overflow: hidden;
@@ -17,8 +17,16 @@ a {
   white-space: nowrap;
   width: 100%; }
 
+.per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; }
+
 /*----text show two line only -------*/
-.per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_teletext_item_wrap .per_boS_book_item_name, .per_purchased_teletext_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name, .per_course_container .per_course_item_wrap .per_course_item_name, .course_item .course_item_info {
+.per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name, .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name, .course_item .course_item_info, .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_bottom {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -27,8 +35,7 @@ a {
   word-break: break-all; }
 
 /*----flex layout ----*/
-.tooltip_bar, .per_bookShelf, .per_course_container, .per_purchased_video_container, .per_purchased_spot_read_container,
-.per_purchased_teletext_container {
+.tooltip_bar, .per_bookShelf, .per_purchased_video_container {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start; }
@@ -40,6 +47,36 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  .personal .bottom_navigator {
+    width: 100%;
+    height: 1.30667rem;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: 0.01333rem solid #B3B3B3; }
+    .personal .bottom_navigator .tab {
+      font-size: 0.24rem;
+      color: #A1A1A1;
+      text-align: center;
+      position: relative; }
+      .personal .bottom_navigator .tab > img {
+        width: 0.58667rem; }
+      .personal .bottom_navigator .tab .redSpot {
+        position: absolute;
+        width: 0.16rem;
+        height: 0.16rem;
+        border-radius: 0.16rem;
+        background-color: red;
+        right: -0.04rem;
+        top: -0.04rem; }
+    .personal .bottom_navigator .tab_active {
+      color: #48ACFF; }
+
+#shop, #message {
+  display: none; }
 
 .loading {
   position: absolute;
@@ -53,7 +90,8 @@ a {
   height: 0.58667rem;
   padding: 0.36rem 0.42667rem;
   margin-top: 0.13333rem;
-  display: block; }
+  display: block;
+  text-decoration: none; }
   .per_list > li a .per_icon_wrap {
     width: 0.58667rem;
     height: inherit;
@@ -79,6 +117,7 @@ a {
 
 /*-----------------footer--------------*/
 .tooltip_bar {
+  opacity: 0;
   width: 100%;
   height: 1.6rem;
   background-color: #414141;
@@ -143,30 +182,30 @@ a {
     position: absolute;
     top: 0.05333rem; }
 
-.per_bookShelf, .per_myCollection, .per_purchased {
-  padding: 0.32rem 0.29333rem 0 0rem; }
+.per_bookShelf, .per_myCollection {
+  padding: 0.32rem 0.29333rem 0.32rem 0rem; }
 
-.per_boS_book_item_wrap, .per_purchased_teletext_item_wrap, .per_purchased_spot_read_item_wrap {
+.per_boS_book_item_wrap, .per_purchased_spot_read_item_wrap {
   width: 2.26667rem;
   height: 100%;
   font-size: 0.32rem;
   color: #222222;
   margin: 0 0.29333rem 0.58667rem 0.58667rem; }
-  .per_boS_book_item_wrap .per_boS_book_item, .per_boS_book_item_wrap .per_purchased_teletext_item, .per_boS_book_item_wrap .per_purchased_spot_read_item, .per_purchased_teletext_item_wrap .per_boS_book_item, .per_purchased_teletext_item_wrap .per_purchased_teletext_item, .per_purchased_teletext_item_wrap .per_purchased_spot_read_item, .per_purchased_spot_read_item_wrap .per_boS_book_item, .per_purchased_spot_read_item_wrap .per_purchased_teletext_item, .per_purchased_spot_read_item_wrap .per_purchased_spot_read_item {
+  .per_boS_book_item_wrap .per_boS_book_item, .per_boS_book_item_wrap .per_purchased_teletext_item, .per_boS_book_item_wrap .per_purchased_spot_read_item, .per_purchased_spot_read_item_wrap .per_boS_book_item, .per_purchased_spot_read_item_wrap .per_purchased_teletext_item, .per_purchased_spot_read_item_wrap .per_purchased_spot_read_item {
     width: 2.26667rem;
     height: 3.2rem; }
-    .per_boS_book_item_wrap .per_boS_book_item > img, .per_boS_book_item_wrap .per_purchased_teletext_item > img, .per_boS_book_item_wrap .per_purchased_spot_read_item > img, .per_purchased_teletext_item_wrap .per_boS_book_item > img, .per_purchased_teletext_item_wrap .per_purchased_teletext_item > img, .per_purchased_teletext_item_wrap .per_purchased_spot_read_item > img, .per_purchased_spot_read_item_wrap .per_boS_book_item > img, .per_purchased_spot_read_item_wrap .per_purchased_teletext_item > img, .per_purchased_spot_read_item_wrap .per_purchased_spot_read_item > img {
+    .per_boS_book_item_wrap .per_boS_book_item > img, .per_boS_book_item_wrap .per_purchased_teletext_item > img, .per_boS_book_item_wrap .per_purchased_spot_read_item > img, .per_purchased_spot_read_item_wrap .per_boS_book_item > img, .per_purchased_spot_read_item_wrap .per_purchased_teletext_item > img, .per_purchased_spot_read_item_wrap .per_purchased_spot_read_item > img {
       width: 100%;
       height: 100%;
       object-fit: cover; }
-  .per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_teletext_item_wrap .per_boS_book_item_name, .per_purchased_teletext_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name {
+  .per_boS_book_item_wrap .per_boS_book_item_name, .per_boS_book_item_wrap .per_purchased_book_item_name, .per_purchased_spot_read_item_wrap .per_boS_book_item_name, .per_purchased_spot_read_item_wrap .per_purchased_book_item_name {
     width: 100%;
     margin-top: 0.16rem; }
 
-.per_myCollection, .per_purchased {
-  padding: 0.21333rem 0 0 0; }
+.per_myCollection {
+  padding: 0.32rem 0; }
 
-.per_myC_title_wrap, .per_purchased_title_wrap {
+.per_myC_title_wrap {
   width: 9.14667rem;
   height: 0.8rem;
   border: 0.02667rem solid #3ca6fe;
@@ -177,10 +216,14 @@ a {
   color: #3ca6fe;
   font-size: 0.42667rem;
   margin: auto auto; }
-  .per_myC_title_wrap .per_tab_title, .per_purchased_title_wrap .per_tab_title {
+  .per_myC_title_wrap .per_tab_title {
     width: 3.04rem;
     height: 100%; }
-  .per_myC_title_wrap .per_tab_title_active, .per_purchased_title_wrap .per_tab_title_active {
+    .per_myC_title_wrap .per_tab_title:first-child {
+      border-right: 0.02667rem solid #3ca6fe; }
+    .per_myC_title_wrap .per_tab_title:nth-child(2) {
+      border-right: 0.02667rem solid #3ca6fe; }
+  .per_myC_title_wrap .per_tab_title_active {
     background: #3ca6fe;
     color: white;
     transition: all .3s ease; }
@@ -310,41 +353,191 @@ a {
     float: left; }
 
 /*----------purchased css ----------*/
-.per_tab_title_spot {
-  border-left: 0.02667rem solid #3ca6fe;
-  border-right: 0.02667rem solid #3ca6fe; }
+.per_purchased .per_purchased_content_wrap {
+  margin-top: 0; }
 
-.per_purchased_content_wrap {
-  width: 100%;
-  margin-top: 0.21333rem; }
-  .per_purchased_content_wrap .per_purchased_video_item, .per_purchased_content_wrap .per_purchased_spot_read_item,
-  .per_purchased_content_wrap .per_purchased_teletext_item {
-    width: 2.24rem;
-    height: 3.2rem; }
+.per_purchased_title_wrap {
+  height: 1.17333rem;
+  background-color: #fff;
+  border-bottom: 0.02667rem solid #ededed;
+  display: flex;
+  font-size: 0.42667rem;
+  color: #222;
+  overflow-x: scroll; }
+  .per_purchased_title_wrap .per_purchased_tab_title {
+    width: 3.33333rem;
+    height: 100%;
+    line-height: 1.17333rem;
+    text-align: center;
+    border-bottom: 0.05333rem solid rgba(255, 255, 255, 0);
+    box-sizing: border-box; }
+  .per_purchased_title_wrap .per_purchased_tab_title_active {
+    color: #3ca6fe;
+    border-color: #3ca6fe; }
+  .per_purchased_title_wrap .per_purchased_tab_title_line {
+    width: 2.66667rem;
+    height: 0.05333rem;
+    background-color: #3ca6fe;
+    margin-top: -0.02667rem; }
+    .per_purchased_title_wrap .per_purchased_tab_title_line .per_purchased_tab_title_line_hidden {
+      display: none; }
 
-.per_course_container {
-  padding: 0 0 0 0.37333rem; }
-  @media (min-width: 760px) {
-    .per_course_container {
-      padding: 0 0 0 0.2rem; } }
-  .per_course_container .per_course_item_wrap {
-    width: 4.53333rem;
-    height: 3.49333rem;
-    margin: 0 0.26667rem 0.37333rem 0rem;
-    color: #222; }
-    @media (min-width: 760px) {
-      .per_course_container .per_course_item_wrap {
-        margin: 0 0.13333rem 0.37333rem 0rem; } }
-    .per_course_container .per_course_item_wrap .per_course_item {
-      width: 100%;
-      height: 2.53333rem; }
-      .per_course_container .per_course_item_wrap .per_course_item > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; }
-    .per_course_container .per_course_item_wrap .per_course_item_name {
-      margin-top: 0.21333rem; }
+.per_purchased_teletext_container, .per_purchased_spot_read_container, .per_course_container {
+  display: flex;
+  flex-direction: column; }
+  .per_purchased_teletext_container .per_purchased_item_wrap, .per_purchased_spot_read_container .per_purchased_item_wrap, .per_course_container .per_purchased_item_wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin-bottom: 0.26667rem; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_status, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_status, .per_course_container .per_purchased_item_wrap .per_purchased_item_status {
+      font-size: 0.37333rem;
+      color: #222222;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.4rem; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_paperbook_item_status, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_paperbook_item_status, .per_course_container .per_purchased_item_wrap .per_purchased_paperbook_item_status {
+      color: #01C293; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item, .per_course_container .per_purchased_item_wrap .per_purchased_item {
+      display: flex;
+      padding: 0 0.4rem; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_thumbnails, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_thumbnails, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_thumbnails {
+        width: 2.34667rem;
+        height: 3.41333rem;
+        margin-right: 0.4rem;
+        flex-shrink: 0; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_course_item_thumbnails, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_course_item_thumbnails, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_course_item_thumbnails {
+        width: 4.53333rem;
+        height: 2.53333rem; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_studyplan_thumbnails, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_studyplan_thumbnails, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_studyplan_thumbnails {
+        width: 1.65333rem;
+        height: 2.58667rem; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1; }
+        .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_name {
+          font-size: 0.42667rem;
+          color: #222222; }
+        .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_publisher {
+          font-size: 0.32rem;
+          color: #666666; }
+        .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_price, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_price, .per_course_container .per_purchased_item_wrap .per_purchased_item .per_purchased_item_detail .per_purchased_item_price {
+          font-size: 0.32rem;
+          color: #666666;
+          align-self: flex-end; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_pay, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_pay, .per_course_container .per_purchased_item_wrap .per_purchased_item_pay {
+      font-size: 0.4rem;
+      color: #222222;
+      align-self: flex-end;
+      padding: 0.4rem; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_logistics, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_logistics, .per_course_container .per_purchased_item_wrap .per_purchased_item_logistics {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.26667rem 0.4rem;
+      border-top: 0.01333rem solid #ededed; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_logistics_btn, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_logistics_btn, .per_course_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_logistics_btn {
+        width: 2.29333rem;
+        height: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.02667rem solid #ddd;
+        border-radius: 0.93333rem;
+        font-size: 0.37333rem;
+        color: #666; }
+      .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_confirm_btn, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_confirm_btn, .per_course_container .per_purchased_item_wrap .per_purchased_item_logistics .per_purchased_item_confirm_btn {
+        margin-left: 0.4rem;
+        border-color: #3ca6fe;
+        color: #3ca6fe; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .per_purchased_item_logistics_hidden, .per_purchased_spot_read_container .per_purchased_item_wrap .per_purchased_item_logistics_hidden, .per_course_container .per_purchased_item_wrap .per_purchased_item_logistics_hidden {
+      display: none; }
+    .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap, .per_course_container .per_purchased_item_wrap .modal_wrap {
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 1000;
+      background-color: rgba(55, 55, 55, 0.2); }
+      .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap {
+        width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.4rem 0.4rem;
+        background-color: #fff;
+        border-radius: 0.05333rem;
+        display: flex;
+        flex-direction: column;
+        flex: 0; }
+        .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_confirm_tips, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_confirm_tips, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_confirm_tips {
+          font-size: 0.37333rem;
+          color: #666;
+          margin: 0.26667rem; }
+        .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 0.4rem;
+          position: relative; }
+          .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn {
+            width: 2rem;
+            padding: 0.2rem 0.13333rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            border: 0.02667rem solid #ddd;
+            border-radius: 0.08rem; }
+            .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot {
+              position: relative;
+              right: 0.13333rem;
+              display: inline-block;
+              width: 0.26667rem;
+              height: 0.26667rem;
+              transform: rotate(45deg);
+              animation: spinRotate 1.2s infinite  linear; }
+              .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i {
+                width: 0.12rem;
+                height: 0.12rem;
+                border-radius: 100%;
+                background-color: #fff;
+                display: block;
+                position: absolute; }
+                .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:first-child, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:first-child, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:first-child {
+                  left: 0;
+                  top: 0; }
+                .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(2), .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(2), .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(2) {
+                  right: 0;
+                  top: 0; }
+                .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(3), .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(3), .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:nth-child(3) {
+                  right: 0;
+                  bottom: 0; }
+                .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:last-child, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:last-child, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_btn .spin_dot i:last-child {
+                  left: 0;
+                  bottom: 0; }
+          .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn {
+            color: #fff;
+            border-color: #3ca6fe;
+            background-color: #3ca6fe;
+            margin-left: 0.26667rem; }
+          .per_purchased_teletext_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn_mask, .per_purchased_spot_read_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn_mask, .per_course_container .per_purchased_item_wrap .modal_wrap .modal_confirm_wrap .modal_btns .modal_confirm_btn_mask {
+            width: 2rem;
+            height: inherit;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1001;
+            background-color: rgba(34, 34, 34, 0.09);
+            opacity: 0; }
 
+@-webkit-keyframes spinRotate {
+  100% {
+    transform: rotate(405deg); } }
 ._null {
   text-align: center;
   margin: 0 auto;
@@ -416,5 +609,94 @@ a {
     line-height: 0.32rem;
     display: inline-block;
     text-align: center; }
+
+.per_purchased_content_wrap {
+  margin-top: 0.32rem; }
+
+.per_coupon_list {
+  width: 100%;
+  height: initial;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.per_unuserd_coupon_wrap {
+  display: flex;
+  width: 9.36rem;
+  height: 3.06667rem;
+  background-color: #fff;
+  margin-bottom: 0.32rem; }
+  .per_unuserd_coupon_wrap .per_unuserd_coupon_left {
+    width: 2.8rem;
+    height: inherit;
+    background-color: #fe9b3c;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_left .per_unuserd_coupon_left_semicircle {
+      width: 0.30667rem;
+      height: 0.6rem;
+      margin-left: -0.01333rem; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_left .per_unuserd_coupon_left_amount_wrap {
+      width: 2.16rem;
+      height: inherit;
+      font-size: 0.32rem;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 0.32rem; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_left .per_unuserd_coupon_left_amount {
+      margin-top: 0.8rem;
+      font-size: 0.4rem; }
+      .per_unuserd_coupon_wrap .per_unuserd_coupon_left .per_unuserd_coupon_left_amount > span {
+        font-size: 0.8rem; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_left .per_unuserd_coupon_left_amount_use {
+      margin-bottom: 0.8rem; }
+  .per_unuserd_coupon_wrap .per_unuserd_coupon_right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.42667rem 0.32rem 0.42667rem 0.26667rem;
+    justify-content: space-between;
+    flex: 1; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_top {
+      display: flex;
+      font-size: 0.4rem;
+      justify-content: space-between; }
+      .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_top .per_unuserd_coupon_right_title {
+        color: #222; }
+      .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_top .per_unuserd_coupon_right_title_right {
+        display: flex;
+        align-items: center; }
+      .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_top .per_unuserd_coupon_right_use {
+        font-size: 0.34667rem;
+        color: #FA3B3B;
+        margin-right: 0.16rem; }
+      .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_top .per_unuserd_coupon_right_arrow {
+        width: 0.4rem;
+        height: 0.4rem; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_middle,
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_bottom {
+      color: #999; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_bottom {
+      line-height: 0.48rem; }
+    .per_unuserd_coupon_wrap .per_unuserd_coupon_right .per_unuserd_coupon_right_semicircle {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%); }
+  .per_unuserd_coupon_wrap .per_ineffective_coupon_left {
+    background-color: #DADADA; }
+  .per_unuserd_coupon_wrap .per_ineffective_coupon_right_title {
+    color: #999; }
+  .per_unuserd_coupon_wrap .per_ineffective_coupon_img {
+    width: 2.10667rem;
+    height: 1.33333rem;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0.32rem; }
 
 /*# sourceMappingURL=App.css.map */
