@@ -150,3 +150,41 @@ categories: work
 对比设置前后的效果
 ![alt text](https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png)
 ![alt text](https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png)
+
+11.判断数组对象
+
+        var obj=[1,2] ;
+        console.log(toString.call(obj) === '[object Array]'); // true
+
+12.不可靠的undefined
+    
+        var a=undefined;
+
+        //用void 0来判断一下
+        if(a===void 0){
+            console.log('true')
+        }       // true
+
+        //再用void (0)来判断一下
+        if(a===void (0)){
+            console.log('true')
+        }       // true
+        //最后我们打印一下这两个的返回值
+        console.log(void 0,void (0))    // undefined undefined
+
+
+13.去除前后所有空格
+
+    var strr="    1 ad dertasdf sdfASDFDF DFG SDFG    "
+    //  type 1-所有空格，2-前后空格，3-前空格，4-后空格
+    function trim(str,type){
+        switch (type){
+            case 1:return str.replace(/\s+/g,"");
+            case 2:return str.replace(/(^\s*)|(\s*$)/g, "");
+            case 3:return str.replace(/(^\s*)/g, "");
+            case 4:return str.replace(/(\s*$)/g, "");
+            default:return str;
+        }
+    }
+    console.log( trim(strr,1))      //  "1addertasdfsdfASDFDFDFGSDFG"
+

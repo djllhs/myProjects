@@ -24,7 +24,7 @@
 <meta property="og:description" content="工作时遇到的问题，随手记录下来。可能比较散乱">
 <meta property="og:image" content="https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png">
 <meta property="og:image" content="https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png">
-<meta property="og:updated_time" content="2017-09-29T10:31:21.772Z">
+<meta property="og:updated_time" content="2017-11-24T06:02:01.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作随笔">
 <meta name="twitter:description" content="工作时遇到的问题，随手记录下来。可能比较散乱">
@@ -435,7 +435,37 @@ toolbars:[
     &lt;/tr&gt;
 &lt;/table&gt;
 </code></pre><p>对比设置前后的效果<br><img src="https://cdn11.bookln.cn/218875_2F1487E5704A71A4EE2B94F4C07150FB.png" alt="alt text"><br><img src="https://cdn11.bookln.cn/218875_F4A2F3B5B1CE75429038F7C90DD0FDDF.png" alt="alt text"></p>
+<p>11.判断数组对象</p>
+<pre><code>var obj=[1,2] ;
+console.log(toString.call(obj) === &apos;[object Array]&apos;); // true
+</code></pre><p>12.不可靠的undefined</p>
+<pre><code>var a=undefined;
 
+//用void 0来判断一下
+if(a===void 0){
+    console.log(&apos;true&apos;)
+}       // true
+
+//再用void (0)来判断一下
+if(a===void (0)){
+    console.log(&apos;true&apos;)
+}       // true
+//最后我们打印一下这两个的返回值
+console.log(void 0,void (0))    // undefined undefined
+</code></pre><p>13.去除前后所有空格</p>
+<pre><code>var strr=&quot;    1 ad dertasdf sdfASDFDF DFG SDFG    &quot;
+//  type 1-所有空格，2-前后空格，3-前空格，4-后空格
+function trim(str,type){
+    switch (type){
+        case 1:return str.replace(/\s+/g,&quot;&quot;);
+        case 2:return str.replace(/(^\s*)|(\s*$)/g, &quot;&quot;);
+        case 3:return str.replace(/(^\s*)/g, &quot;&quot;);
+        case 4:return str.replace(/(\s*$)/g, &quot;&quot;);
+        default:return str;
+    }
+}
+console.log( trim(strr,1))      //  &quot;1addertasdfsdfASDFDFDFGSDFG&quot;
+</code></pre>
       
     </div>
     
@@ -446,7 +476,7 @@ toolbars:[
         <p><span>本文标题:</span><a href="/2017/05/27/job-essays/index.html">工作随笔</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">djllhs</a></p>
         <p><span>发布时间:</span>2017-05-27, 11:09:56</p>
-        <p><span>最后更新:</span>2017-09-29, 18:31:21</p>
+        <p><span>最后更新:</span>2017-11-24, 14:02:01</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/27/job-essays/index.html" title="工作随笔">http://djllhs.net/2017/05/27/job-essays/index.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://djllhs.net/2017/05/27/job-essays/index.html　　作者: djllhs" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
