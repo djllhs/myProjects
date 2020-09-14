@@ -189,8 +189,8 @@ oss对象存储用来搭建个人博客是我同事告诉我的，比较适合�
 4. 创建配置文件aliyun.init
 
         [Credentials]
-        accesskeyid = LTAIowA8PvCJxEA8
-        accesskeysecret = 2bHXbmggon6ng6hJzLNaSkLKbIdzPe
+        accesskeyid = xxx
+        accesskeysecret = xxxx
 5. 创建发布文件incremental_upload_to_aliyun_oss.py,这个代码就自己写了哈
 6. 创建脚本publish.bat
 
